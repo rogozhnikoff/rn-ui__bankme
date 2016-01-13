@@ -109,7 +109,8 @@ const APP = {
     //}
   },
   'header-title-text': {
-    fontSize: 24
+    fontSize: 24,
+    textTransform: 'uppercase'
   },
   'header-title-progressbar': {
     height: 5,
