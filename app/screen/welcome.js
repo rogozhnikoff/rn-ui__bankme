@@ -44,54 +44,38 @@ class Welcome extends React.Component {
         style={styles['carousel']}
     >
       <View style={itemStyle}>
-          <Image
-              source={require('../assets/welcome/homescreen_2x_326ppi.png')}
-              style={bgStyle}
-              resizeMode="cover"
-          />
+        <Image
+            source={require('../assets/welcome/homescreen_2x_326ppi.png')}
+            style={bgStyle}
+            resizeMode="cover"
+        >
+          <Text>slide 1</Text>
+        </Image>
       </View>
       <View style={itemStyle}>
         <Image
             source={require('../assets/welcome/homescreen_2x_326ppi3.png')}
             style={bgStyle}
             resizeMode="cover"
-        />
+        >
+          <Text>slide 2</Text>
+        </Image>
       </View>
       <View style={itemStyle}>
         <Image
             source={require('../assets/welcome/homescreen_2x_326ppi2.png')}
             style={bgStyle}
             resizeMode="cover"
-        />
+        >
+          <Text>slide 2</Text>
+        </Image>
       </View>
     </Carousel>
   }
 }
-//<Text style={{fontSize: 25, color: 'white'}}>Page 1</Text>
-//<Image
-//    style={bgStyle}
-//    resizeMode="cover"
-//    source={require('../assets/welcome/homescreen_2x_326ppi.png')}
-///>
 var styles = StyleSheet.create({
   'carousel-bg': {
     flex: 1,
-    //padding: 0,
-    //justifyContent: 'flex-start',
-    //alignSelf: 'flex-start',
-    //width: null,
-    //height: null,
-    //position: 'absolute',
-    //top: 0,
-    //left: 0,
-    //right: 0,
-    //bottom: 0,
-    //resizeMode: 'stretch',
-    //backgroundColor: 'red',
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    //flexDirection: 'column',
-    //flex: 1
   },
   'carousel': {
     flex: 1,
@@ -99,18 +83,12 @@ var styles = StyleSheet.create({
   },
   'carousel-item': {
     alignSelf: 'stretch',
-    //justifyContent: 'center',
-    //alignItems: 'center',
     backgroundColor: 'pink',
-    //position: 'absolute',
-    //top: 0, bottom: 0, left: 0, right: 0,
   },
 });
 
 
-Welcome.title = 'Welcome'
 Welcome.defaultProps = {};
-/* https://facebook.github.io/react/docs/reusable-components.html */
 Welcome.propTypes = {};
 
 module.exports = Welcome;

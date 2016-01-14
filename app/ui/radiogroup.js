@@ -19,6 +19,7 @@ class RadioGroup extends React.Component {
 
     return (<View style={this.props.style}>
       <Text>this is component "RadioGroup" ...</Text>
+    {this.props.children}
     </View>)
   }
 }

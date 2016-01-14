@@ -9,7 +9,7 @@ const STYLES = require('../stylesheet');
 
 class Header extends React.Component {
   render() {
-    return (<View style={STYLES['header']}>
+    return (<View style={[STYLES['header'], this.props.style]}>
       <View style={STYLES['header-panel']} />
 
       <View style={STYLES['header-title']}>
@@ -28,17 +28,17 @@ class SignupScreen extends React.Component {
   render() {
     console.log('render of SignupScreen', this.props, this.state);
 
-    const Screen = SCREENS[this.props.router.page.split('/')[1] || 'whosyourbank'];
+    const Screen = this.props.children;
+    return (<View style={[this.props.style]}>
+      <Header title={this.props.title.toUpperCase()} />
 
-    return (<View style={this.props.style}>
-      <Header title={Screen.title.toUpperCase()} />
-
-      <ScrollView style={{flex: 1}}>
-        <Screen {...this.props} style={STYLES['signup-screen']}/>
+      <ScrollView style={{flex: 1, height: 667-105, backgroundColor: 'white'}} showsVerticalScrollIndicator={true}>
+        <Screen style={[{flex: 1}, {marginTop: 10, marginBottom: 15, marginLeft: 15, marginRight: 15}]}   />
       </ScrollView>
     </View>)
   }
 }
+//<Screen {...this.props} style={[this.props.style, STYLES['signup-screen'], {flex: 1}]}   />
 
 SignupScreen.defaultProps = {};
 /* https://facebook.github.io/react/docs/reusable-components.html */

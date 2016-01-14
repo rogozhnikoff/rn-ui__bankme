@@ -3,6 +3,7 @@ width: 750px
 
 
 
+
 ## сложное
 [-] индекс пейдж, со ссылками на другие страницы (роутинг) - 60 м
 [-] радиогруппа - 60 м
@@ -21,3 +22,10 @@ width: 750px
 
 
 
+## blur
+https://github.com/react-native-fellowship/react-native-blur
+https://github.com/voronianski/react-native-effects-view
+https://github.com/brentvatne/react-native-overlay
+
+## modal
+https://github.com/brentvatne/react-native-modal

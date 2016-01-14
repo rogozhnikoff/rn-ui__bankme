@@ -98,6 +98,7 @@ const APP = {
   },
   'header': {
     backgroundColor: color.dev,
+    height: 105,
     //marginBottom: 10,
   },
   'header-panel': {
