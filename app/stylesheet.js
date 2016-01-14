@@ -124,10 +124,15 @@ const APP = {
   },
   'header-title-progressbar': {
     height: 5,
-    backgroundColor: '#0c99e2',
+    backgroundColor: 'lightgray',
   },
 
-  'progressbar': {},
+  'progressbar': {
+    height: 5,
+    backgroundColor: '#0c99e2',
+    borderTopRightRadius: 2,
+    borderBottomRightRadius: 2,
+  },
 
   'signup': {},
   'signup-screen': {

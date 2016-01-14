@@ -19,9 +19,7 @@ class Header extends React.Component {
       </View>
 
       <View style={STYLES['header-title-progressbar']}>
-        <View style={STYLES['progressbar']}>
-          <View style={[STYLES['progressbar-line'], {width: width * this.props.progress}]} />
-        </View>
+        <View style={[STYLES['progressbar'], {width: width * this.props.progress}]} />
       </View>
     </View>)
   }
