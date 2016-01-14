@@ -6,17 +6,19 @@ const {
 const _ = require('lodash');
 const {reduce, assign} = _;
 
-
+const UI = require('../ui')
 const STYLES = require('../stylesheet');
-
 
 class _PageList extends React.Component {
   render() {
     console.log('render of _PageList', this.props, this.state);
 
     return (<View style={this.props.style}>
-      <ScrollView style={{flex: 1}}>
-        <View></View>
+
+      <UI.H2>Hey bro, it's a list of screens of bankMe application</UI.H2>
+      <ScrollView style={{flex: 1, marginTop: 25}}>
+        <UI.Button onPress={() => this.props.toRoute('welcome')}>welcome</UI.Button>
+        <UI.Button onPress={() => this.props.toRoute('welcome2')}>welcome2</UI.Button>
       </ScrollView>
     </View>)
   }

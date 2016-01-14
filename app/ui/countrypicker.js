@@ -8,6 +8,9 @@ const {reduce, assign} = _;
 
 const Input = require('./input');
 
+
+// https://facebook.github.io/react-native/docs/pickerios.html
+
 class Countrypicker extends React.Component {
   render() {
     console.log('render of Countrypicker', this.props, this.state);

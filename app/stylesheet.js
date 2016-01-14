@@ -20,6 +20,8 @@
 
  * */
 
+
+
 /*
  книжки на почитать:
  https://designthencode.com
@@ -30,6 +32,7 @@
 const StyleSheet = require('react-native').StyleSheet;
 
 const _ = require('lodash');
+const classNames = require('classnames');
 const {reduce, assign} = _;
 
 
@@ -61,16 +64,23 @@ const THEME = {
     paddingLeft: 8,
   },
   'input-underline': {
-    //position: 'absolute',
-    //top: 0,
-    //left: 0,
+    position: 'absolute',
+    bottom: 5,
+    left: 0,
+    right: 0,
     //width: 50,
 
     //flex: 1,
     //flexDirection:'row',
     alignSelf: 'stretch',
     height: 1,
-    backgroundColor: '#aaaaaa'
+    backgroundColor: '#aaaaaa',
+  },
+  'input-underline-focus': {
+    backgroundColor: 'blue',
+  },
+  'input-underline-noempty': {
+    backgroundColor: 'black',
   }
 }
 
@@ -110,7 +120,6 @@ const APP = {
   },
   'header-title-text': {
     fontSize: 24,
-    textTransform: 'uppercase'
   },
   'header-title-progressbar': {
     height: 5,
@@ -129,6 +138,29 @@ const APP = {
 }
 
 
+//const ALLSTYLES = StyleSheet.create(assign({}, THEME, APP));
+const ALLSTYLES = assign({}, THEME, APP);
+
+
+const METHODS = {
+  get() {
+    return reduce(arguments, (collect, className) => assign(collect, ALLSTYLES[className]), {});
+  },
+  multi() {
+    return this.get.apply(null, classNames.apply(null, arguments).split(' '));
+  }
+}
+
+/*
+ зашититься от ошибок несуществующего класа
+ защититься от ошибок неправильно набранных атрибутов
+ и можно даже от ошибок значений атрибутов
+ postcss йопта решает
+ * */
+
+module.exports = assign({}, THEME, APP, METHODS);
+
+/*
 function hexToRgb(hex, opacity) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
   hex = hex.replace(shorthandRegex, function (m, r, g, b) {
@@ -142,16 +174,4 @@ function hexToRgb(hex, opacity) {
   ];
   opacity && colors.push(opacity);
   return result ? 'rgb(' + colors.join(', ') + ')' : null
-}
-
-
-//module.exports = StyleSheet.create(STYLES);
-
-/*
-зашититься от ошибок несуществующего класа
-защититься от ошибок неправильно набранных атрибутов
-и можно даже от ошибок значений атрибутов
-postcss йопта решает
-
-* */
-module.exports = assign({}, THEME, APP);
+}*/
