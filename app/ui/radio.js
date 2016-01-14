@@ -29,8 +29,7 @@ class Radio extends React.Component {
 
           return <TouchableOpacity onPress={() => this.setState({value})} key={value} style={{flex: 1}}>
           {cloneElement(option, {
-            isSelected: (value === selectedValue),
-            children: <Text style={{color: ((value === selectedValue) ? 'black' : 'red')}}>{option.props.children}</Text>
+            isSelected: (value === selectedValue)
           })}
           </TouchableOpacity>
         }.bind(this)

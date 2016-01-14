@@ -26,7 +26,7 @@ class SignupWhosyourbank extends React.Component {
 
       <View style={STYLES['form-group']}>
         <UI.H2>Where do you live</UI.H2>
-        <UI.Input placeholder="Adress" autoFocus />
+        <UI.Input placeholder="Adress" />
         <UI.Input placeholder="City" />
         <UI.Input placeholder="Postal Code" keyboardType="number-pad"/>
       </View>
