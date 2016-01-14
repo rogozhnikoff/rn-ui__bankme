@@ -17,10 +17,10 @@ class SignupWhosyourbank extends React.Component {
 
       <View style={STYLES['form-group']}>
         <UI.H2>Are you US citizen</UI.H2>
-        <UI.RadioGroup>
-          <UI.Radio>Yes</UI.Radio>
-          <UI.Radio>No</UI.Radio>
-        </UI.RadioGroup>
+        <UI.Radio>
+          <UI.Option value="yes">Yes</UI.Option>
+          <UI.Option value="no">No</UI.Option>
+        </UI.Radio>
       </View>
 
 

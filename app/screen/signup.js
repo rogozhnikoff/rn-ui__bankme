@@ -1,11 +1,13 @@
 const React = require('react-native');
 const {
-    Text, View, PropTypes, ScrollView
+    Text, View, PropTypes, ScrollView, Dimensions
     } = React;
 
 const _ = require('lodash');
 const {reduce, assign} = _;
 const STYLES = require('../stylesheet');
+
+const {width} = Dimensions.get('window')
 
 class Header extends React.Component {
   render() {
@@ -17,7 +19,9 @@ class Header extends React.Component {
       </View>
 
       <View style={STYLES['header-title-progressbar']}>
-        <View style={STYLES['progressbar']}></View>
+        <View style={STYLES['progressbar']}>
+          <View style={[STYLES['progressbar-line'], {width: width * this.props.progress}]} />
+        </View>
       </View>
     </View>)
   }
@@ -30,7 +34,7 @@ class SignupScreen extends React.Component {
 
     const Screen = this.props.children;
     return (<View style={[this.props.style]}>
-      <Header title={this.props.title.toUpperCase()} />
+      <Header title={this.props.title.toUpperCase()} progress={.3} />
 
       <ScrollView style={{flex: 1, height: 667-105, backgroundColor: 'white'}} showsVerticalScrollIndicator={true}>
         <Screen style={[{flex: 1}, {marginTop: 10, marginBottom: 15, marginLeft: 15, marginRight: 15}]}   />

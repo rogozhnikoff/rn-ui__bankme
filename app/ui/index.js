@@ -11,7 +11,7 @@ module.exports = {
   H2: require('./h2'),
 
   Radio: require('./radio'),
-  RadioGroup: require('./radiogroup'),
+  Option: require('./option'),
 
   Input: require('./input'),
   Datepicker: require('./datepicker'),
