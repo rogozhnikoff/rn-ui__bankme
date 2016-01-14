@@ -34,9 +34,19 @@ class Button extends React.Component {
       }
       return memo;
     }, {});
+
     return (<TouchableOpacity {...onEvents}>
-      <View {...this.props}>
-        <Text>{this.props.children}</Text>
+      <View {...this.props} style={[{
+        flex: 1, alignItems: 'center', marginTop: 8, marginBottom: 8,
+        paddingTop: 17, paddingBottom: 17, paddingLeft: 17, paddingRight: 17,
+        backgroundColor: this.props.color ? this.props.color : 'transparent',
+        borderRadius: 1
+      }, this.props.style]}>
+        <Text style={{
+          //flex: 1,
+          color: this.props.color ? 'white' : '#0c99e2',
+          fontSize: 23
+        }}>{this.props.children}</Text>
       </View>
     </TouchableOpacity>)
   }

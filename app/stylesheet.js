@@ -77,7 +77,7 @@ const THEME = {
     backgroundColor: '#aaaaaa',
   },
   'input-underline-focus': {
-    backgroundColor: 'blue',
+    backgroundColor: '#0c99e2',
   },
   'input-underline-noempty': {
     backgroundColor: 'black',

@@ -15,6 +15,9 @@ class SignupWhosyourbank extends React.Component {
     console.log('render of SignupWhosyourbank', this.props, this.state);
     return (<View style={this.props.style}>
 
+      <UI.Button>Next</UI.Button>
+      <UI.Button color="red">Colored</UI.Button>
+
       <View style={STYLES['form-group']}>
         <UI.H2>Are you US citizen</UI.H2>
         <UI.Radio>
@@ -41,6 +44,7 @@ class SignupWhosyourbank extends React.Component {
         {<UI.Countrypicker placeholder="Tap to select country" />}
         <UI.Input placeholder="SIN" keyboardType="number-pad" />
       </View>
+
 
     </View>)
   }

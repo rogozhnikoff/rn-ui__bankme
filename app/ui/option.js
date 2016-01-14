@@ -20,7 +20,6 @@ class Option extends React.Component {
     console.log('render of Option', this.props, this.state);
     const {isSelected} = this.props
 
-
     return (<View style={[this.props.style, {flexDirection: "row", marginTop: 6, marginBottom: 8}]}>
         <View style={{flex: 1}}>
           <View style={{
