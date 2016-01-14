@@ -17,42 +17,34 @@ const {
 const _ = require('lodash');
 const {reduce, assign} = _;
 
-const STYLES = require('../stylesheet');
-//const routes = require('../routes');
+const $$ = require('../stylesheet').get;
 
-class Button extends React.Component {
-  //goTo (name) {
-  //  routes(name)
-  //}
-  render() {
-    console.log('render of Button', this.props, this.state);
 
-    const onEvents = reduce(this.props, function (memo, method, key) {
-      // todo: it's dirty
-      if (key.slice(0, 2) === 'on') {
-        memo[key] = method;
-      }
-      return memo;
-    }, {});
+module.exports = (props) => {
 
-    return (<TouchableOpacity {...onEvents}>
-      <View {...this.props} style={[{
-        flex: 1, alignItems: 'center', marginTop: 8, marginBottom: 8,
-        paddingTop: 17, paddingBottom: 17, paddingLeft: 17, paddingRight: 17,
-        backgroundColor: this.props.color ? this.props.color : 'transparent',
-        borderRadius: 1
-      }, this.props.style]}>
-        <Text style={{
-          //flex: 1,
-          color: this.props.color ? 'white' : '#0c99e2',
-          fontSize: 23
-        }}>{this.props.children}</Text>
-      </View>
-    </TouchableOpacity>)
-  }
-}
+  const onEvents = reduce(props, function (memo, method, key) {
+    // todo: it's dirty
+    if (key.slice(0, 2) === 'on') {
+      memo[key] = method;
+    }
+    return memo;
+  }, {});
 
-//Button.defaultProps = {};
-//Button.propTypes = {};
-
-module.exports = Button;
+  return (<TouchableOpacity {...onEvents}>
+    <View {...props} style={[{
+      flex: 1, alignItems: 'center', marginTop: 8, marginBottom: 8,
+      paddingTop: 17, paddingBottom: 17, paddingLeft: 17, paddingRight: 17,
+      backgroundColor: props.color ? props.color : 'transparent',
+      borderRadius: 1
+    }, props.style]}>
+      <Text style={{
+        //flex: 1,
+        color: props.color ? 'white' : '#0c99e2',
+        fontSize: 23,
+        //fontFamily: props.color ? 'Circe Thin' : 'Lato Light Regular',
+        //fontFamily: props.color ? 'CRC15' : 'lato_light',
+        //fontFamily: 'lato_light',
+      }}>{props.children}</Text>
+    </View>
+  </TouchableOpacity>)
+};

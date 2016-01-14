@@ -22,6 +22,7 @@ class Radio extends React.Component {
 
     const selectedValue = this.state.value;
 
+    // todo: option не обязательно в первом слое лежит!
     const items = map(
         filter(this.props.children, (el) => el.type === Option),
         function (option) {

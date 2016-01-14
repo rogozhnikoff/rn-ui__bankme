@@ -16,10 +16,18 @@ class _PageList extends React.Component {
     return (<View style={this.props.style}>
 
       <UI.H2>Hey bro, it's a list of screens of bankMe application</UI.H2>
-      <ScrollView style={{flex: 1, marginTop: 25}}>
-        <UI.Button onPress={() => this.props.toRoute('welcome')}>welcome</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('welcome2')}>welcome2</UI.Button>
-      </ScrollView>
+
+      <UI.Button onPress={() => this.props.toRoute('signup/agreement')}>signup/agreement</UI.Button>
+
+      <UI.Button onPress={() => this.props.toRoute('signup/financial')}>signup/financial</UI.Button>
+
+      <UI.Button onPress={() => this.props.toRoute('signup/honeymoney')}>signup/honeymoney</UI.Button>
+
+      <UI.Button onPress={() => this.props.toRoute('signup/linkbank')}>signup/linkbank</UI.Button>
+
+      <UI.Button onPress={() => this.props.toRoute('signup/whoareyou')}>signup/whoareyou</UI.Button>
+
+      <UI.Button onPress={() => this.props.toRoute('signup/whosyourbank')}>signup/whosyourbank</UI.Button>
     </View>)
   }
 }

@@ -7,7 +7,7 @@ const _ = require('lodash');
 const {reduce, assign} = _;
 
 const Input = require('./input');
-
+const $$ = require('../stylesheet').get;
 
 class Datepicker extends React.Component {
   constructor(props) {

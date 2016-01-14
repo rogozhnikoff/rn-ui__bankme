@@ -6,6 +6,7 @@ const {
 const _ = require('lodash');
 const {reduce, assign, isString, isEmpty, filter, isFunction} = _;
 const STYLE = require('../stylesheet');
+const $$ = STYLE.get;
 
 function mergeMethods() {
   var list = filter(arguments, isFunction);
@@ -41,14 +42,14 @@ class Input extends React.Component {
     const onFocus = mergeMethods(() => this.setState({focus: true}), this.props.onFocus);
     const onBlur = mergeMethods(() => this.setState({focus: false}), this.props.onBlur);
 
-    return (<View style={[STYLE['input'], this.props.style]} >
+    return (<View style={[$$('input'), this.props.style]} >
       <TextInput
           {...this.props} // todo: filter or merge used methods
           onChangeText={(text) => this.setState({text})}
           onFocus={onFocus}
           onBlur={onBlur}
           value={value}
-          style={STYLE.get('input-field')} />
+          style={$$('input-field')} />
 
       <View style={lineStyle} />
     </View>)

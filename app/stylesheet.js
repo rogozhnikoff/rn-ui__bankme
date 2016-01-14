@@ -135,12 +135,25 @@ const APP = {
   },
 
   'signup': {},
-  'signup-screen': {
-    //marginTop: -10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    //backgroundColor: 'green',
+  'signup-scroll': {
+    flex: 1,
+    height: 667 - 105,
+    backgroundColor: 'white'
   },
+  'signup-screen': {
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 15,
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  'quote': {
+
+  },
+  'quote-yellow': {
+
+  }
+
 }
 
 
@@ -149,11 +162,13 @@ const ALLSTYLES = assign({}, THEME, APP);
 
 
 const METHODS = {
-  get() {
-    return reduce(arguments, (collect, className) => assign(collect, ALLSTYLES[className]), {});
+  get(classNames) {
+    return reduce(classNames.split(/\w/),
+        (collect, className) => assign(collect, ALLSTYLES[className]), {}
+    );
   },
   multi() {
-    return this.get.apply(null, classNames.apply(null, arguments).split(' '));
+    return this.get(classNames.apply(null, arguments));
   }
 }
 
@@ -164,20 +179,20 @@ const METHODS = {
  postcss йопта решает
  * */
 
-module.exports = assign({}, THEME, APP, METHODS);
+module.exports = METHODS;
 
 /*
-function hexToRgb(hex, opacity) {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  })
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  const colors = [
-    parseInt(result[1], 16),
-    parseInt(result[2], 16),
-    parseInt(result[3], 16),
-  ];
-  opacity && colors.push(opacity);
-  return result ? 'rgb(' + colors.join(', ') + ')' : null
-}*/
+ function hexToRgb(hex, opacity) {
+ const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$$/i
+ hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+ return r + r + g + g + b + b;
+ })
+ const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$$/i.exec(hex);
+ const colors = [
+ parseInt(result[1], 16),
+ parseInt(result[2], 16),
+ parseInt(result[3], 16),
+ ];
+ opacity && colors.push(opacity);
+ return result ? 'rgb(' + colors.join(', ') + ')' : null
+ }*/

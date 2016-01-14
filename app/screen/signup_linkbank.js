@@ -6,7 +6,7 @@ const {
 const _ = require('lodash');
 const {reduce, assign} = _;
 
-const STYLES = require('../stylesheet');
+const $$ = require('../stylesheet').get;
 const UI = require('../ui');
 
 class SignupLinkbank extends React.Component {
@@ -14,7 +14,21 @@ class SignupLinkbank extends React.Component {
     console.log('render of SignupLinkbank', this.props, this.state);
 
     return (<View style={this.props.style}>
-      <Text>SignupLinkbank</Text>
+      <Image source={require('../assets/icon-guard.png')} style={{}}/>
+
+      <Text style={{}}>All bankMe accounts are insured against 1$ million of fraud and theft</Text>
+
+      <View style={$$('input-wrap')}>
+        <Text style={$$('input-wrap-label')}>Bank username</Text>
+        <UI.Input style={$$('input-wrap-field')} placeholder="Username" />
+      </View>
+
+      <View style={$$('input-wrap')}>
+        <Text style={$$('input-wrap-label')}>Bank password</Text>
+        <UI.Input style={$$('input-wrap-field') placeholder="Password" />
+      </View>
+
+      <UI.Button>Next</UI.Button>
     </View>)
   }
 }

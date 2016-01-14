@@ -28,6 +28,7 @@ class Root extends React.Component {
     super(props)
 
     this.state = {
+      //route: '_screenlist'
       route: 'signup/whosyourbank'
       //route: 'welcome'
     }

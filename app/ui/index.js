@@ -8,7 +8,10 @@
 
 module.exports = {
   Button: require('./button'),
-  H2: require('./h2'),
+
+
+  // headers
+  H2: require('./h2').H2,
 
   Radio: require('./radio'),
   Option: require('./option'),

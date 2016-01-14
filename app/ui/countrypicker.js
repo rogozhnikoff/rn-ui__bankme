@@ -11,7 +11,7 @@ const {reduce, assign, map} = _;
 const Input = require('./input');
 
 const countries = require('../assets/countries.json');
-
+const $$ = require('../stylesheet').get;
 
 
 // https://facebook.github.io/react-native/docs/pickerios.html
