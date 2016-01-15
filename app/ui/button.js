@@ -37,14 +37,14 @@ module.exports = (props) => {
       backgroundColor: props.color ? props.color : 'transparent',
       borderRadius: 1
     }, props.style]}>
-      <Text style={{
+      <Text style={[{
         //flex: 1,
         color: props.color ? 'white' : '#0c99e2',
         fontSize: 23,
         //fontFamily: props.color ? 'Circe Thin' : 'Lato Light Regular',
         //fontFamily: props.color ? 'CRC15' : 'lato_light',
         //fontFamily: 'lato_light',
-      }}>{props.children}</Text>
+      }, props.labelStyle]}>{props.children}</Text>
     </View>
   </TouchableOpacity>)
 };

@@ -1,6 +1,6 @@
 const React = require('react-native');
 const {
-    Text, View, PropTypes
+    Text, View, PropTypes, Dimensions
     } = React;
 
 const _ = require('lodash');
@@ -8,36 +8,37 @@ const {reduce, assign} = _;
 
 const $$ = require('../stylesheet').get;
 const UI = require('../ui');
+const {width} = Dimensions.get('window');
 
 class SignupAgreement extends React.Component {
   render() {
     console.log('render of SignupAgreement', this.props, this.state);
 
     return (<View style={this.props.style}>
-        <UI.H2>TERMS OF SERVICE</UI.H2>
+        <UI.H2 style={{alignSelf: 'center'}}>TERMS OF SERVICE</UI.H2>
 
-        <View style={$$('quote quote-yellow')}>
+        <Text style={$$('quote quote-yellow')}>
           BY AGREEING...
-        </View>
-        <View style={$$('quote quote-yellow')}>
+        </Text>
+        <Text style={$$('quote quote-yellow')}>
           AAAA
-        </View>
-        <View style={$$('quote quote-yellow')}>
+        </Text>
+        <Text style={$$('quote quote-yellow')}>
           BBBB
-        </View>
+        </Text>
 
-        <View style={$$('paragraph')}>
+        <Text style={$$('paragraph')}>
             aksjdhfk;ajsdhf;kadhjsf;asdfhj
-        </View>
-        <View style={$$('paragraph')}>
+        </Text>
+        <Text style={$$('paragraph')}>
             aksjdhfk;ajsdhf;kadhjsf;asdfhj
-        </View>
-        <View style={$$('insider1')}>
-          <View style={{flex: 1}}>
-            <UI.Button style={{}}>I Disagree</UI.Button>
+        </Text>
+        <View style={{flex: 1, flexDirection: 'row', marginTop: 20}}>
+          <View style={{flex: 1, width: width * .45}}>
+            <UI.Button labelStyle={{fontSize: 15, color: 'gray'}}>I Disagree</UI.Button>
           </View>
-          <View style={{flex: 1}}>
-            <UI.Button color="orange" style={{}}>SIGN AGREEMENT</UI.Button>
+          <View style={{flex: 1, width: width * .45}}>
+            <UI.Button color="orange" labelStyle={{fontSize: 15}}>SIGN AGREEMENT</UI.Button>
           </View>
         </View>
     </View>)

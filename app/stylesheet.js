@@ -117,8 +117,20 @@ const APP = {
     marginLeft: 15,
     marginRight: 15,
   },
-  'quote': {},
-  'quote-yellow': {},
+  'quote': {
+    marginTop: 3,
+    marginBottom: 4,
+    padding: 7,
+    fontWeight: 'bold',
+    backgroundColor: 'lightgray',
+  },
+  'quote-yellow': {
+    backgroundColor: '#ffff99',
+  },
+  'paragraph': {
+    marginTop: 2,
+    marginBottom: 3,
+  },
 
 
   'choosebank': {
@@ -148,7 +160,9 @@ const APP = {
   },
   'input-wrap-field': {
 
-  }
+  },
+
+
 }
 
 

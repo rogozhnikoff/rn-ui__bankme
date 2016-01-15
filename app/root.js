@@ -21,8 +21,8 @@ const routes = (function (list) {
   'signup/whoareyou': require('./screen/signup_whoareyou'),
   'signup/financial': require('./screen/signup_financial'),
   'signup/linkbank': require('./screen/signup_linkbank'),
-  //'signup/honeymoney': require('./screen/signup_honeymoney'),
-  //'signup/agreement': require('./screen/signup_agreement'),
+  'signup/honeymoney': require('./screen/signup_honeymoney'),
+  'signup/agreement': require('./screen/signup_agreement'),
 });
 
 /* ROOT COMPONENT */
@@ -31,7 +31,7 @@ class Root extends React.Component {
     super(props)
 
     this.state = {
-      route: 'signup/linkbank',
+      route: 'signup/agreement',
     }
   }
 
