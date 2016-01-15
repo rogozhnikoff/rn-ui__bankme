@@ -1,11 +1,14 @@
 const React = require('react-native');
+const _ = require('lodash');
+
 const {
     Text, View, PropTypes, StyleSheet, TouchableOpacity, Image, Dimensions
     } = React;
 
-const _ = require('lodash');
 const {reduce, assign} = _;
 const {width, height} = Dimensions.get('window');
+
+const AsyncStorage = require('../app/lib/storage');
 
 const buttonSize = 20;
 
@@ -41,9 +44,16 @@ class Perfecta extends React.Component {
   constructor(props) {
     super(props)
 
+
     this.state = {
       enabled: false
     }
+
+    AsyncStorage.getItem('perfecta').then((savedState) => savedState && this.setState(savedState));
+  }
+
+  switchState () {
+    this.setState({enabled: !this.state.enabled}, () => AsyncStorage.setItem('perfecta', this.state));
   }
 
   renderOverlay() {
@@ -61,7 +71,7 @@ class Perfecta extends React.Component {
 
     return (<View style={style.wrapper} pointerEvents="box-none">
         {overlay}
-      <TouchableOpacity onPress={() => this.setState({enabled: !enabled})} style={style.btn}>
+      <TouchableOpacity onPress={this.switchState.bind(this)} style={style.btn}>
         <View style={[style.btnVisible, (enabled ? style.btnVisibleEnabled : null)]} />
       </TouchableOpacity>
     </View>)

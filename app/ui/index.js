@@ -1,11 +1,3 @@
-/*
-
-  https://github.com/react-uikit/react-uikit
-  каруселька!
-
-* */
-
-
 module.exports = {
   Button: require('./button'),
 
