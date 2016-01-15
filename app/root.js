@@ -12,10 +12,8 @@ const routes = (function (list) {
 })({
   '_screenlist': require('./screen/_screenlist'),
   'welcome': require('./screen/welcome'),
-  //
-  //// strange name for strange screen
-  //'bluepage': require('./screen/bluepage'),
-  //
+  // strange name for strange screen
+  'bluepage': require('./screen/bluepage'),
   'signup/whosyourbank': require('./screen/signup_whosyourbank'),
   'signup/whoareyou': require('./screen/signup_whoareyou'),
   'signup/financial': require('./screen/signup_financial'),
@@ -31,7 +29,7 @@ class Root extends React.Component {
 
     this.state = {
       //route: '_screenlist',
-      route: 'welcome',
+      route: 'bluepage',
     }
   }
 
@@ -42,9 +40,9 @@ class Root extends React.Component {
   render() {
     //console.log(Navigator.SceneConfigs);
 
-    var Screen = (function(){
+    var Screen = (function () {
       // dirty check, but oookay )
-      if(this.state.route.split('/')[0] === 'signup') {
+      if (this.state.route.split('/')[0] === 'signup') {
         const SignupWrapper = require('./screen/signup');
         const SignupPage = routes(this.state.route);
         return function (props) {
@@ -56,7 +54,7 @@ class Root extends React.Component {
     }.bind(this))();
 
     return (<View style={$$('wrapper')}>
-        <Screen toRoute={this.toRoute.bind(this)} />
+      <Screen toRoute={this.toRoute.bind(this)} />
     </View>)
   }
 }

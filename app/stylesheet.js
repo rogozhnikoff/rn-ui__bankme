@@ -206,6 +206,39 @@ const APP = {
   },
   'haveanaccount-btn': {
     fontWeight: 'bold'
+  },
+
+
+
+  'bluepage': {
+    backgroundColor: '#0c99e2',
+    alignItems: 'center',
+    paddingTop: 50
+  },
+  'bluepage-list': {
+    //alignItems: 'center'
+    marginTop: 30,
+    marginBottom: 15,
+    //flex: 1,
+  },
+  'bluepage-item': {
+    width: 100,
+    marginTop: 20,
+    marginBottom: 20,
+    flex: 1,
+    alignItems: 'center',
+  },
+  'bluepage-text': {
+    textAlign: 'center',
+    flex: 1,
+    alignSelf: 'center'
+  },
+  'bluepage-image': {
+    //alignSelf: 'center',
+    //flex: 1,
+    width: 65,
+    height: 65,
+    marginBottom: 5
   }
 }
 
