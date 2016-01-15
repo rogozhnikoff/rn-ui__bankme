@@ -1,44 +1,14 @@
-/*
-
- пацаны заморочились
- https://github.com/xinthink/react-native-material-kit/blob/master/lib/theme.js
-
- * */
-
-/*
- судя по дизайну, у ребят есть тяга или прошлое с материалом
- значит Material Design отличный референс по мелким элементам
-
- http://www.getmdl.io/components/#textfields-section
-
-
- ### по крупным, лучше взять айосевские стандартные
- https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Animation.html
-
- ### библиотека паттернов
- http://capptivate.co/
-
- * */
-
-
-
-/*
- книжки на почитать:
- https://designthencode.com
- https://designcode.io/
- * */
-
-
 const StyleSheet = require('react-native').StyleSheet;
-
 const _ = require('lodash');
 const classNames = require('classnames');
 const {reduce, assign} = _;
 
+var __ENV = 'development';
+
 
 const color = {
-  dev: 'red'
-}
+  dev: hexToRgb('#000', .7)
+};
 
 const THEME = {
   'h2': {
@@ -147,18 +117,15 @@ const APP = {
     marginLeft: 15,
     marginRight: 15,
   },
-  'quote': {
-
-  },
-  'quote-yellow': {
-
-  }
+  'quote': {},
+  'quote-yellow': {}
 
 }
 
 
-//const ALLSTYLES = StyleSheet.create(assign({}, THEME, APP));
-const ALLSTYLES = assign({}, THEME, APP);
+const ALLSTYLES = __ENV === 'development'
+    ? assign({}, THEME, APP)
+    : StyleSheet.create(assign({}, THEME, APP));
 
 
 const METHODS = {
@@ -173,26 +140,30 @@ const METHODS = {
 }
 
 /*
- зашититься от ошибок несуществующего класа
- защититься от ошибок неправильно набранных атрибутов
- и можно даже от ошибок значений атрибутов
- postcss йопта решает
+ todo:
+   зашититься от ошибок несуществующего класа
+   защититься от ошибок неправильно набранных атрибутов - реакт защищает
+   и можно даже от ошибок значений атрибутов - реакт защищает
+
+   добавить возможности для кода, возможно в цсс-стиле
+   postcss йопта решает
  * */
 
 module.exports = METHODS;
 
-/*
- function hexToRgb(hex, opacity) {
- const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$$/i
- hex = hex.replace(shorthandRegex, function (m, r, g, b) {
- return r + r + g + g + b + b;
- })
- const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$$/i.exec(hex);
- const colors = [
- parseInt(result[1], 16),
- parseInt(result[2], 16),
- parseInt(result[3], 16),
- ];
- opacity && colors.push(opacity);
- return result ? 'rgb(' + colors.join(', ') + ')' : null
- }*/
+
+// @credits: честно украл откуда-то
+function hexToRgb(hex, opacity) {
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$$/i
+  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+    return r + r + g + g + b + b;
+  })
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$$/i.exec(hex);
+  const colors = [
+    parseInt(result[1], 16),
+    parseInt(result[2], 16),
+    parseInt(result[3], 16),
+  ];
+  opacity && colors.push(opacity);
+  return result ? 'rgb(' + colors.join(', ') + ')' : null
+}

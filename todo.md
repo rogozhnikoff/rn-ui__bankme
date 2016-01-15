@@ -29,3 +29,35 @@ https://github.com/brentvatne/react-native-overlay
 
 ## modal
 https://github.com/brentvatne/react-native-modal
+
+
+
+/*
+
+ пацаны заморочились
+ https://github.com/xinthink/react-native-material-kit/blob/master/lib/theme.js
+
+ * */
+
+/*
+ судя по дизайну, у ребят есть тяга или прошлое с материалом
+ значит Material Design отличный референс по мелким элементам
+
+ http://www.getmdl.io/components/#textfields-section
+
+
+ ### по крупным, лучше взять айосевские стандартные
+ https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Animation.html
+
+ ### библиотека паттернов
+ http://capptivate.co/
+
+ * */
+
+
+
+/*
+ книжки на почитать:
+ https://designthencode.com
+ https://designcode.io/
+ * */

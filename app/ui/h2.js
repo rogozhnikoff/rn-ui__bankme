@@ -10,8 +10,8 @@ const $$ = require('../stylesheet').get;
 
 module.exports = {
   'H2': (props) => {
-    return (<View style={[$$('h2'), props.style]}>
-      <Text style={$$('h2-text')}>{props.children}</Text>
+    return (<View style={[$$('h2'), props.boxStyle]}>
+      <Text style={[$$('h2-text'), props.style]}>{props.children}</Text>
     </View>)
   },
 };
