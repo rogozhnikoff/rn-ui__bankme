@@ -243,6 +243,7 @@ const APP = {
 }
 
 
+
 const ALLSTYLES = __ENV === 'development'
     ? assign({}, THEME, APP)
     : StyleSheet.create(assign({}, THEME, APP));

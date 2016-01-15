@@ -1,8 +1,8 @@
 const React = require('react-native');
-const { Text, View, PropTypes } = React;
+const { Text, View, PropTypes, ScrollView } = React;
 
 const $$ = require('./stylesheet').get;
-
+const Perfecta = require('../dev/perfecta');
 
 /* ROUTES */
 const routes = (function (list) {
@@ -28,8 +28,8 @@ class Root extends React.Component {
     super(props)
 
     this.state = {
-      //route: '_screenlist',
-      route: 'bluepage',
+      route: '_screenlist',
+      //route: 'bluepage',
     }
   }
 
@@ -55,6 +55,7 @@ class Root extends React.Component {
 
     return (<View style={$$('wrapper')}>
       <Screen toRoute={this.toRoute.bind(this)} />
+      <Perfecta source={require('../dev/design/aggrement_1.png')} opacity={.3} />
     </View>)
   }
 }
