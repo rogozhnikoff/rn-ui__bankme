@@ -189,6 +189,24 @@ const APP = {
     flex: 1,
     alignSelf: 'center',
   },
+
+  'welcome-title': {
+    color: 'white',
+    fontSize: 22,
+    alignSelf: 'center',
+    textAlign: 'center',
+    marginTop: 150
+  },
+
+  'haveanaccount': {
+    marginTop: 25
+  },
+  'haveanaccount-text': {
+    textAlign: 'center'
+  },
+  'haveanaccount-btn': {
+    fontWeight: 'bold'
+  }
 }
 
 
