@@ -1,6 +1,6 @@
 const React = require('react-native');
 const {
-    Text, View, PropTypes
+    Text, View, PropTypes, Image
     } = React;
 
 const _ = require('lodash');
@@ -13,10 +13,24 @@ class SignupLinkbank extends React.Component {
   render() {
     console.log('render of SignupLinkbank', this.props, this.state);
 
-    return (<View style={this.props.style}>
-      <Image source={require('../assets/icon-guard.png')} style={{}}/>
+    const iconStyle = {
+      width: 142 * .8,
+      height: 179 * .8,
+      alignSelf: 'center',
+      marginBottom: 30
+    }
 
-      <Text style={{}}>All bankMe accounts are insured against 1$ million of fraud and theft</Text>
+    return (<View style={this.props.style}>
+      <Image source={require('../assets/icon-guard.png')} style={iconStyle}/>
+
+      <Text style={{
+        alignSelf: 'center',
+        marginLeft: 15,
+        marginRight: 15,
+        fontSize: 19,
+        color: 'gray',
+        marginBottom: 25
+      }}>All bankMe accounts are insured against 1$ million of fraud and theft</Text>
 
       <View style={$$('input-wrap')}>
         <Text style={$$('input-wrap-label')}>Bank username</Text>
@@ -25,7 +39,7 @@ class SignupLinkbank extends React.Component {
 
       <View style={$$('input-wrap')}>
         <Text style={$$('input-wrap-label')}>Bank password</Text>
-        <UI.Input style={$$('input-wrap-field') placeholder="Password" />
+        <UI.Input style={$$('input-wrap-field')} placeholder="Password" />
       </View>
 
       <UI.Button>Next</UI.Button>

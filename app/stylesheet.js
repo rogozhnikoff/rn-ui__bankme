@@ -90,7 +90,7 @@ const APP = {
     //}
   },
   'header-title-text': {
-    fontSize: 24,
+    fontSize: 20,
   },
   'header-title-progressbar': {
     height: 5,
@@ -138,6 +138,17 @@ const APP = {
 
   },
   'choosebank-label': {},
+
+
+  'input-wrap': {
+    marginBottom: 5,
+  },
+  'input-wrap-label': {
+    fontSize: 22
+  },
+  'input-wrap-field': {
+
+  }
 }
 
 

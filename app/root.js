@@ -18,9 +18,9 @@ const routes = (function (list) {
   //'bluepage': require('./screen/bluepage'),
   //
   'signup/whosyourbank': require('./screen/signup_whosyourbank'),
-  //'signup/whoareyou': require('./screen/signup_whoareyou'),
-  //'signup/financial': require('./screen/signup_financial'),
-  //'signup/linkbank': require('./screen/signup_linkbank'),
+  'signup/whoareyou': require('./screen/signup_whoareyou'),
+  'signup/financial': require('./screen/signup_financial'),
+  'signup/linkbank': require('./screen/signup_linkbank'),
   //'signup/honeymoney': require('./screen/signup_honeymoney'),
   //'signup/agreement': require('./screen/signup_agreement'),
 });
@@ -31,9 +31,7 @@ class Root extends React.Component {
     super(props)
 
     this.state = {
-      //route: '_screenlist'
-      route: 'signup/whosyourbank',
-      //route: 'welcome'
+      route: 'signup/linkbank',
     }
   }
 
