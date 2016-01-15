@@ -1,12 +1,10 @@
 const React = require('react-native');
 const {
-    Text, View, PropTypes
+    Text, View, PropTypes, TouchableOpacity
     } = React;
 
 const _ = require('lodash');
-const {reduce, assign, filter} = _;
-
-
+const {reduce, assign, filter, isString} = _;
 
 
 class Option extends React.Component {
@@ -18,20 +16,32 @@ class Option extends React.Component {
 
   render() {
     console.log('render of Option', this.props, this.state);
-    const {isSelected} = this.props
+    const {isSelected} = this.props;
 
-    return (<View style={[this.props.style, {flexDirection: "row", marginTop: 6, marginBottom: 8}]}>
-        <View style={{flex: 1}}>
-          <View style={{
-            width: 12, height: 12, borderWidth: .5, borderRadius: 12/2, marginTop: 3, marginLeft: 4,
-            borderColor: isSelected ? 'black' : 'gray',
-            backgroundColor: isSelected ? 'gray' : 'transparent'
-          }} />
-        </View>
-        <View style={{flex: 10}}>
-          <Text style={{color: isSelected ? 'black' : 'gray'}}>{this.props.children}</Text>
-        </View>
-    </View>)
+    const children = isString(this.props.children)
+        ? <Text style={{color: isSelected ? 'black' : 'gray'}}>{this.props.children}</Text>
+        : this.props.children;
+
+
+    const circleStyle = {
+      width: 12, height: 12, borderWidth: .5, borderRadius: 12 / 2,
+      alignSelf: 'center',
+      borderColor: isSelected ? 'black' : 'gray',
+      backgroundColor: isSelected ? 'gray' : 'transparent'
+    };
+    const optionStyle = [{
+      flexDirection: "row", marginTop: 6, marginBottom: 8
+    }, this.props.style]
+
+    return (<TouchableOpacity onPress={this.props.onPress}
+        style={optionStyle}>
+      <View style={{flex: 1}}>
+        <View style={circleStyle} />
+      </View>
+      <View style={{flex: 10}}>
+        {children}
+      </View>
+    </TouchableOpacity>)
   }
 }
 

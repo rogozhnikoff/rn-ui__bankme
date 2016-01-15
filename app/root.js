@@ -17,7 +17,7 @@ const routes = (function (list) {
   //// strange name for strange screen
   //'bluepage': require('./screen/bluepage'),
   //
-  //'signup/whosyourbank': require('./screen/signup_whosyourbank'),
+  'signup/whosyourbank': require('./screen/signup_whosyourbank'),
   //'signup/whoareyou': require('./screen/signup_whoareyou'),
   //'signup/financial': require('./screen/signup_financial'),
   //'signup/linkbank': require('./screen/signup_linkbank'),
@@ -31,8 +31,8 @@ class Root extends React.Component {
     super(props)
 
     this.state = {
-      route: '_screenlist'
-      //route: 'signup/whosyourbank',
+      //route: '_screenlist'
+      route: 'signup/whosyourbank',
       //route: 'welcome'
     }
   }

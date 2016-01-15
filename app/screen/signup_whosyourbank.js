@@ -7,6 +7,7 @@ const _ = require('lodash');
 const {reduce, assign} = _;
 
 const $$ = require('../stylesheet').get;
+const multi = require('../stylesheet').multi;
 const {width} = Dimensions.get('window');
 const UI = require('../ui');
 
@@ -14,35 +15,38 @@ class SignupWhosyourbank extends React.Component {
   render() {
     console.log('render of SignupWhosyourbank', this.props, this.state);
 
+    const optionWidth = parseInt((width * 0.85) / 2);
+    const logoWidth = optionWidth * .8;
+
+    const $$optionsStyle = assign({}, $$('choosebank-option'),
+        {width: optionWidth});
+    const $$logoStyle = assign({}, $$('choosebank-logo'),
+        {width: logoWidth, height: logoWidth, borderRadius: logoWidth * .5});
+
 
     return (<View style={this.props.style}>
+
       <UI.Radio style={$$('choosebank')}>
-        <View style={$$('choosebank-row')}>
-          <UI.Option value="1" style={$$('choosebank-option')}>
-            <Image style={$$('choosebank-logo')} source={require('../assets/logos/1.png')} />
-          </UI.Option>
-          <UI.Option value="2" style={$$('choosebank-option')}>
-            <Image style={$$('choosebank-logo')} source={require('../assets/logos/2.png')} />
-          </UI.Option>
-        </View>
+        <UI.Option value="1" style={$$optionsStyle}>
+          <Image style={$$logoStyle} source={require('../assets/logo/1.png')} />
+        </UI.Option>
+        <UI.Option value="2" style={$$optionsStyle}>
+          <Image style={$$logoStyle} source={require('../assets/logo/1.png')} />
+        </UI.Option>
 
-        <View style={$$('choosebank-row')}>
-          <UI.Option value="3" style={$$('choosebank-option')}>
-            <Image style={$$('choosebank-logo')} source={require('../assets/logos/3.png')} />
-          </UI.Option>
-          <UI.Option value="4" style={$$('choosebank-option')}>
-            <Image style={$$('choosebank-logo')} source={require('../assets/logos/4.png')} />
-          </UI.Option>
-        </View>
+        <UI.Option value="3" style={$$optionsStyle}>
+          <Image style={$$logoStyle} source={require('../assets/logo/1.png')} />
+        </UI.Option>
+        <UI.Option value="4" style={$$optionsStyle}>
+          <Image style={$$logoStyle} source={require('../assets/logo/1.png')} />
+        </UI.Option>
 
-        <View style={$$('choosebank-row')}>
-          <UI.Option value="5" style={$$('choosebank-option')}>
-            <Image style={$$('choosebank-logo')} source={require('../assets/logos/5.png')} />
-          </UI.Option>
-          <UI.Option value="6" style={$$('choosebank-option')}>
-            <UI.H2 style={$$('choosebank-label choosebank-label')}>Other bank</UI.H2>
-          </UI.Option>
-        </View>
+        <UI.Option value="5" style={$$optionsStyle}>
+          <Image style={$$logoStyle} source={require('../assets/logo/1.png')} />
+        </UI.Option>
+        <UI.Option value="6" style={$$optionsStyle}>
+          <UI.H2 style={$$('choosebank-label')}>Other bank</UI.H2>
+        </UI.Option>
 
       </UI.Radio>
 

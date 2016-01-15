@@ -1,6 +1,6 @@
 const React = require('react-native');
 const {
-    Text, View, PropTypes, cloneElement, TouchableOpacity
+    Text, View, PropTypes, cloneElement
     } = React;
 
 const _ = require('lodash');
@@ -23,16 +23,17 @@ class Radio extends React.Component {
     const selectedValue = this.state.value;
 
     // todo: option не обязательно в первом слое лежит!
+    // и вообще, перенеси в опшион, нехер тут хачить
     const items = map(
         filter(this.props.children, (el) => el.type === Option),
         function (option) {
           const value = option.props.value;
 
-          return <TouchableOpacity onPress={() => this.setState({value})} key={value} style={{flex: 1}}>
-          {cloneElement(option, {
-            isSelected: (value === selectedValue)
-          })}
-          </TouchableOpacity>
+          return cloneElement(option, {
+            key: value,
+            isSelected: (value === selectedValue),
+            onPress: () => this.setState({value})
+          })
         }.bind(this)
     );
 

@@ -118,8 +118,26 @@ const APP = {
     marginRight: 15,
   },
   'quote': {},
-  'quote-yellow': {}
+  'quote-yellow': {},
 
+
+  'choosebank': {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    //alignContent: 'stretch'
+  },
+  'choosebank-option': {
+    //flex: 1,
+    //alignSelf: 'auto'
+  },
+  'choosebank-logo': {
+    //flex: 1,
+
+  },
+  'choosebank-label': {},
 }
 
 
@@ -130,23 +148,25 @@ const ALLSTYLES = __ENV === 'development'
 
 const METHODS = {
   get(classNames) {
-    return reduce(classNames.split(/\w/),
-        (collect, className) => assign(collect, ALLSTYLES[className]), {}
-    );
+    return reduce(
+        classNames.split(/\s+/g),
+        (collect, className) => assign(collect, ALLSTYLES[className]),
+        {}
+    )
   },
   multi() {
-    return this.get(classNames.apply(null, arguments));
+    return this.get(classNames.apply(null, arguments))
   }
 }
 
 /*
  todo:
-   зашититься от ошибок несуществующего класа
-   защититься от ошибок неправильно набранных атрибутов - реакт защищает
-   и можно даже от ошибок значений атрибутов - реакт защищает
+ зашититься от ошибок несуществующего класа
+ защититься от ошибок неправильно набранных атрибутов - реакт защищает
+ и можно даже от ошибок значений атрибутов - реакт защищает
 
-   добавить возможности для кода, возможно в цсс-стиле
-   postcss йопта решает
+ добавить возможности для кода, возможно в цсс-стиле
+ postcss йопта решает
  * */
 
 module.exports = METHODS;
