@@ -1,3 +1,13 @@
+/*
+* заваргань кнопки управления opacity (убери из пропсов)
+* протестируй как работает внутри блока (onLayout ?)
+* справиться ли он со scrollable ?
+* клево было бы давать список макетов и < кнопки переключения >
+*
+*   https://bjango.com/mac/skalapreview/
+* */
+
+
 const React = require('react-native');
 const _ = require('lodash');
 
