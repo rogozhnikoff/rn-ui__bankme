@@ -11,8 +11,7 @@ const routes = (function (list) {
   }
 })({
   '_screenlist': require('./screen/_screenlist'),
-  //'welcome': require('./screen/welcome'),
-  //'welcome2': require('./screen/welcome2'),
+  'welcome': require('./screen/welcome'),
   //
   //// strange name for strange screen
   //'bluepage': require('./screen/bluepage'),
@@ -31,7 +30,8 @@ class Root extends React.Component {
     super(props)
 
     this.state = {
-      route: 'signup/agreement',
+      //route: '_screenlist',
+      route: 'welcome',
     }
   }
 

@@ -19,43 +19,54 @@ const Router = require('react-native-router');
 //    }}
 ///>)
 
-const Carousel = require('react-native-carousel');
+const Carousel = require('../vendor/react-native-carousel');
 
 //require('../assets/welcome/homescreen_2x_326ppi.png')
 const {width, height} = Dimensions.get('window');
+
+//const TextShadow = (props) => {
+//  return <View>
+//    <Text style={[props.style, {}]}>{this.props.children}</Text>
+//    <Text style={[props.style, {}]}>{this.props.children}</Text>
+//  </View>
+//};
 
 
 class Welcome extends React.Component {
   render() {
     console.log('render of Welcome', this.props, this.state);
 
-    return (<View style={[this.props.style, {}]}>
-      <Carousel animate={false} loop={false} style={styles['carousel']}>
+    const slideSize = {width: width * .94, height: height * .89};
 
-        <View style={[$$('carousel-item'), {width, height}]}>
-          <Image
-              source={require('../assets/welcome/homescreen_2x_326ppi.png')}
-              style={[$$('carousel-bg'), {width, height}]} resizeMode="cover">
+    return (<View style={[this.props.style, {backgroundColor: 'transparent', paddingTop: 6}]}>
+      <Carousel animate={false} loop={false} style={[$$('carousel'), slideSize]}
+          indicatorOffset={50} indicatorSize={30} indicatorSpace={15} inactiveIndicatorColor={'#1f273b'} indicatorColor={'#fff'}>
 
-            <View style={$$('carousel-overlay')}>
-              <Text style={$$('welcome-title')}>Automatically roundup purchases and invest the change</Text>
-            </View>
-          </Image>
-        </View>
-
-        <View style={[$$('carousel-item'), {width, height}]}>
+        <View style={[$$('carousel-item'), {height: slideSize.height, width: width}]}>
           <Image
               source={require('../assets/welcome/homescreen_2x_326ppi2.png')}
-              style={[$$('carousel-bg'), {width, height}]} resizeMode="cover">
+              style={[$$('carousel-bg'), slideSize]} resizeMode="cover">
 
             <View style={{}}>
               <Text style={$$('welcome-title')}>Join the bankMe family and start savings today</Text>
 
-              <View  style={$$('carousel-overlay')}>
-                  <UI.Input placeholder="Phone number" style={$$('black-input')} />
-                  <UI.Input placeholder="Email" style={$$('black-input')} />
-                  <UI.Input placeholder="Password" style={$$('black-input')} />
+              <View  style={[$$('carousel-overlay'), {marginTop: 200}]}>
+                  <UI.Input placeholder="Phone number" style={$$('black-input')} placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
+                  <UI.Input placeholder="Email" style={$$('black-input')}  placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
+                  <UI.Input placeholder="Password" style={$$('black-input')}  placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
               </View>
+            </View>
+          </Image>
+        </View>
+
+
+        <View style={[$$('carousel-item'), {height: slideSize.height, width: width}]}>
+          <Image
+              source={require('../assets/welcome/homescreen_2x_326ppi.png')}
+              style={[$$('carousel-bg'), slideSize]} resizeMode="cover">
+
+            <View style={$$('carousel-overlay')}>
+              <Text style={$$('welcome-title')}>Automatically roundup purchases and invest the change</Text>
             </View>
           </Image>
         </View>
@@ -71,20 +82,6 @@ class Welcome extends React.Component {
     </View>)
   }
 }
-var styles = StyleSheet.create({
-  'carousel-bg': {
-    flex: 1,
-  },
-  'carousel': {
-    flex: 1,
-    alignItems: 'stretch'
-  },
-  'carousel-item': {
-    alignSelf: 'stretch',
-    backgroundColor: 'pink',
-  },
-});
-
 
 Welcome.defaultProps = {};
 Welcome.propTypes = {};

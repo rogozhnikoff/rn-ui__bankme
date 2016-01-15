@@ -21,7 +21,7 @@ class SignupAgreement extends React.Component {
           BY AGREEING...
         </Text>
         <Text style={$$('quote quote-yellow')}>
-          AAAA
+          AAAAå
         </Text>
         <Text style={$$('quote quote-yellow')}>
           BBBB

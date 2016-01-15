@@ -42,6 +42,8 @@ class Input extends React.Component {
     const onFocus = mergeMethods(() => this.setState({focus: true}), this.props.onFocus);
     const onBlur = mergeMethods(() => this.setState({focus: false}), this.props.onBlur);
 
+    const line = !this.props.hideLine ? <View style={lineStyle} /> : undefined;
+
     return (<View style={[$$('input'), this.props.style]} >
       <TextInput
           {...this.props} // todo: filter or merge used methods
@@ -49,14 +51,17 @@ class Input extends React.Component {
           onFocus={onFocus}
           onBlur={onBlur}
           value={value}
-          style={$$('input-field')} />
+          placeholderTextColor={this.props.placeholderTextColor}
+          style={[$$('input-field'), this.props.textStyle]} />
 
-      <View style={lineStyle} />
+    {line}
     </View>)
   }
 }
 
-Input.defaultProps = {};
+Input.defaultProps = {
+  placeholderTextColor: 'lightgray'
+};
 Input.propTypes = {};
 
 module.exports = Input;

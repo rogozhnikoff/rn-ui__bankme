@@ -117,6 +117,9 @@ const APP = {
     marginLeft: 15,
     marginRight: 15,
   },
+
+
+
   'quote': {
     marginTop: 3,
     marginBottom: 4,
@@ -127,6 +130,10 @@ const APP = {
   'quote-yellow': {
     backgroundColor: '#ffff99',
   },
+
+
+
+
   'paragraph': {
     marginTop: 2,
     marginBottom: 3,
@@ -163,6 +170,25 @@ const APP = {
   },
 
 
+  'black-input': {
+    backgroundColor: 'rgba(0, 0, 0, .4)'
+  },
+
+
+  'carousel': {
+    flex: 1,
+    //marginTop: 6,
+    alignItems: 'stretch',
+  },
+  'carousel-item': {
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    //backgroundColor: 'pink',
+  },
+  'carousel-bg': {
+    flex: 1,
+    alignSelf: 'center',
+  },
 }
 
 

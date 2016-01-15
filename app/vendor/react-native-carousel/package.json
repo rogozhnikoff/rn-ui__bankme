@@ -1,0 +1,55 @@
+{
+  "name": "react-native-carousel",
+  "version": "0.4.4",
+  "description": "Simple carousel component for react-native",
+  "main": "Carousel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nick/react-native-carousel.git"
+  },
+  "keywords": [
+    "react-native",
+    "carousel"
+  ],
+  "author": {
+    "name": "Nick Poulden",
+    "email": "nick@poulden.com",
+    "url": "https://github.com/nick"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nick/react-native-carousel/issues"
+  },
+  "homepage": "https://github.com/nick/react-native-carousel",
+  "dependencies": {
+    "react-timer-mixin": "^0.13.3"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.4 <1.0"
+  },
+  "gitHead": "82f12e99b818a2a69e2e763731a375c8d56ac3d9",
+  "_id": "react-native-carousel@0.4.4",
+  "_shasum": "f3a21c306e8cc95498a30f4b6027f5cbccd4b54f",
+  "_from": "react-native-carousel@*",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.2.0",
+  "_npmUser": {
+    "name": "nick_p",
+    "email": "nick@poulden.com"
+  },
+  "maintainers": [
+    {
+      "name": "nick_p",
+      "email": "nick@poulden.com"
+    }
+  ],
+  "dist": {
+    "shasum": "f3a21c306e8cc95498a30f4b6027f5cbccd4b54f",
+    "tarball": "http://registry.npmjs.org/react-native-carousel/-/react-native-carousel-0.4.4.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/react-native-carousel/-/react-native-carousel-0.4.4.tgz"
+}
