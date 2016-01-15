@@ -40,7 +40,10 @@ class Welcome extends React.Component {
 
     return (<View style={[this.props.style, {backgroundColor: 'transparent', paddingTop: 6}]}>
       <Carousel animate={false} loop={false} style={[$$('carousel'), slideSize]}
-          indicatorOffset={50} indicatorSize={30} indicatorSpace={15} inactiveIndicatorColor={'#1f273b'} indicatorColor={'#fff'}>
+          indicatorOffset={50} indicatorSize={12} indicatorSpace={24} inactiveIndicatorColor={'transparent'} indicatorColor={'#fff'}
+          indicatorStyle={{borderWidth: 1, borderColor: '#fff'}}
+          inactiveIndicatorStyle={{borderWidth: 1, borderColor: '#fff'}}
+      >
 
         <View style={[$$('carousel-item'), {height: slideSize.height, width: width}]}>
           <Image

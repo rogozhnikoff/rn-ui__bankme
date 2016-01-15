@@ -19,14 +19,16 @@ var Carousel = React.createClass({
   getDefaultProps() {
     return {
       hideIndicators: false,
+      indicatorStyle: {},
+      inactiveIndicatorStyle: {},
       indicatorColor: '#000000',
-      indicatorSize: 50,
+      indicatorSize: 20,
       inactiveIndicatorColor: '#999999',
       indicatorAtBottom: true,
-      indicatorOffset: 250,
+      indicatorOffset: 200,
       width: width,
       initialPage: 0,
-      indicatorSpace: 25,
+      indicatorSpace: 10,
       animate: true,
       delay: 1000,
       loop: true,
@@ -72,9 +74,15 @@ var Carousel = React.createClass({
     };
     position.left = (this.props.width - position.width) / 2;
 
+    var indicatorSizeStyle = {width: this.props.indicatorSize, height: this.props.indicatorSize, borderRadius: this.props.indicatorSize / 2};
     for (var i = 0, l = this.props.children.length; i < l; i++) {
-      style = i === this.state.activePage ? { color: this.props.indicatorColor } : { color: this.props.inactiveIndicatorColor };
-      indicators.push(<Text style={[style, { fontSize: this.props.indicatorSize }]} key={i} onPress={this.indicatorPressed.bind(this,i)}>&bull;</Text>);
+      style = i === this.state.activePage
+          ? Object.assign({ backgroundColor: this.props.indicatorColor }, this.props.indicatorStyle)
+          : Object.assign({ backgroundColor: this.props.inactiveIndicatorColor }, this.props.inactiveIndicatorStyle);
+
+      indicators.push(<View
+          style={[style, indicatorSizeStyle]}
+          key={i} onPress={this.indicatorPressed.bind(this,i)} />);
     }
 
     return (
