@@ -25,75 +25,41 @@ const routes = (function (list) {
   'signup/agreement': require('./screen/signup_agreement'),
 });
 
+function getScreen(name) {
+  // dirty check, but oookay )
+  if (name.split('/')[0] === 'signup') {
+    const SignupWrapper = require('./screen/signup');
+    const SignupPage = routes(name);
+    return function (props) {
+      return (<SignupWrapper title={SignupPage.title} {...props}>{(props) => <SignupPage style={props.style}/>}</SignupWrapper>)
+    }
+  } else {
+    return routes(name)
+  }
+}
+
+
 /* ROOT COMPONENT */
 class Root extends React.Component {
   constructor(props) {
     super(props)
 
+    this.inAnimate = false;
+
     this.state = {
-      inAnimate: false,
       anim: new Animated.Value(0),
-      route: '_screenlist',
+
+      currentScreen: '_screenlist',
+      newScreen: null,
+
+      inAnimation: false,
+
       //route: 'signup/whosyourbank',
       //route: 'signup/agreement',
     }
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        inAnimate: true
-      });
-      Animated.timing(
-          this.state.anim,
-          {
-            toValue: 1,
-            duration: 222,
-            //velocity: 3,
-            //tension: 140,
-            //friction: 100,
-          }
-      ).start(this.onEndAnimation.bind(this));
-    }, 500)
-  }
-
-  toRoute(adress) {
-    this.setState({route: adress})
-  }
-
-  onEndAnimation() {
-    this.setState({
-      inAnimate: false
-    })
-  }
-
-  render() {
-    const {inAnimate} = this.state
-    //console.log(Navigator.SceneConfigs);
-
-    //var Screen = (function () {
-    //  // dirty check, but oookay )
-    //  if (this.state.route.split('/')[0] === 'signup') {
-    //    const SignupWrapper = require('./screen/signup');
-    //    const SignupPage = routes(this.state.route);
-    //    return function (props) {
-    //      return (<SignupWrapper title={SignupPage.title} {...props}>{(props) => <SignupPage style={props.style}/>}</SignupWrapper>)
-    //    }
-    //  } else {
-    //    return routes(this.state.route)
-    //  }
-    //}.bind(this))();
-
-
-
-    //<Animated.Text>{this.state.anim}</Animated.Text>
-
-    //this.state.anim.interpolate({
-    //  inputRange: [0, 1],
-    //  outputRange: [0, 850]
-    //})
-    console.log('width', width)
-
+  getStyles () {
     const screenStyles = {
       position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
       width, height
@@ -101,7 +67,7 @@ class Root extends React.Component {
     const oldScreenStyles = {
       opacity: this.state.anim.interpolate({
         inputRange: [0, 1],
-        outputRange: [1, 0]
+        outputRange: [1, .3]
       }),
       transform: [{
         perspective: this.state.anim.interpolate({
@@ -128,7 +94,7 @@ class Root extends React.Component {
     const newScreenStyles = {
       opacity: this.state.anim.interpolate({
         inputRange: [0, .7],
-        outputRange: [0, 1]
+        outputRange: [0, .7]
       }),
       transform: [{
         perspective: this.state.anim.interpolate({
@@ -151,23 +117,71 @@ class Root extends React.Component {
           outputRange: [width, 0]
         })
       }]
+    };
+    return {
+      screenStyles, oldScreenStyles, newScreenStyles
     }
-    //const newScreenStyles = map(oldScreenStyles, () => /* inputRange перевернуть и стороны изменить */)
+  }
 
-    const OldScreen = require('./screen/welcome')
-    const NewScreen = require('./screen/bluepage')
+  componentDidMount() {
 
-    const NewScreenComponent = <Animated.View style={[screenStyles, newScreenStyles]}>
-      <NewScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
+  }
+
+  toRoute(name) {
+    this.setState({newScreen: name});
+
+    // запускаем анимацию
+    setTimeout(() => {
+      //this.inAnimate = true;
+
+      Animated.timing(
+          this.state.anim,
+          {
+            toValue: 1,
+            duration: 222,
+            //velocity: 3,
+            //tension: 140,
+            //friction: 100,
+          }
+      ).start(() => {
+            //this.inAnimate = false;
+
+            // меняем местами
+            this.setState({
+              currentScreen: name,
+              newScreen: null
+            });
+          });
+    }, 200);
+  }
+
+  render() {
+    const {screenStyles, oldScreenStyles, newScreenStyles} = this.getStyles()
+    const {currentScreen, newScreen} = this.state;
+    const {inAnimate} = this;
+
+    console.log('00000000000000000', inAnimate);
+
+    var NewScreen, NewScreenComponent;
+    //if(newScreen && !inAnimate) {
+    if(newScreen) {
+      // создаем новый скрин
+      NewScreen = getScreen(newScreen);
+      NewScreenComponent = <Animated.View style={[screenStyles, newScreenStyles]}>
+        <NewScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
+      </Animated.View>
+    }
+    const CurrentScreen = getScreen(currentScreen);
+    const CurrentScreenComponent = <Animated.View style={[screenStyles, oldScreenStyles]}>
+      <CurrentScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
     </Animated.View>
 
-    const OldScreenComponent = <Animated.View style={[screenStyles, oldScreenStyles]}>
-      <OldScreen toRoute={this.toRoute.bind(this)} style={$$('wrapper-screen'), {width, height}} />
-    </Animated.View>
+    console.log('////// NewScreen', NewScreen);
+    console.log('////// CurrentScreen', CurrentScreen);
 
     return (<View style={$$('wrapper')}>
       {NewScreenComponent}
-      {OldScreenComponent}
+      {CurrentScreenComponent}
       <Perfecta source={require('../dev/design/aggrement_1.png')} opacity={.3} />
     </View>)
   }
