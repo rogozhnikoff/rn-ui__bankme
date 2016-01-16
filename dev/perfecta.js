@@ -1,11 +1,11 @@
 /*
-* заваргань кнопки управления opacity (убери из пропсов)
-* протестируй как работает внутри блока (onLayout ?)
-* справиться ли он со scrollable ?
-* клево было бы давать список макетов и < кнопки переключения >
-*
-*   https://bjango.com/mac/skalapreview/
-* */
+ * заваргань кнопки управления opacity (убери из пропсов)
+ * протестируй как работает внутри блока (onLayout ?)
+ * справиться ли он со scrollable ?
+ * клево было бы давать список макетов и < кнопки переключения >
+ *
+ *   https://bjango.com/mac/skalapreview/
+ * */
 
 
 const React = require('react-native');
@@ -28,6 +28,7 @@ const style = StyleSheet.create({
     top: 0, left: 0, right: 0, bottom: 0,
     //backgroundColor: 'rgba(0, 0, 0, .5)',
     backgroundColor: 'transparent',
+    transform: [{scale: 1}],
   },
   'overlay': {
     width, height
@@ -54,7 +55,6 @@ class Perfecta extends React.Component {
   constructor(props) {
     super(props)
 
-
     this.state = {
       enabled: false
     }
@@ -62,7 +62,7 @@ class Perfecta extends React.Component {
     AsyncStorage.getItem('perfecta').then((savedState) => savedState && this.setState(savedState));
   }
 
-  switchState () {
+  switchState() {
     this.setState({enabled: !this.state.enabled}, () => AsyncStorage.setItem('perfecta', this.state));
   }
 
@@ -79,7 +79,7 @@ class Perfecta extends React.Component {
         ? this.renderOverlay()
         : null;
 
-    return (<View style={style.wrapper} pointerEvents="box-none">
+    return (<View style={[style.wrapper, this.props.style]} pointerEvents="box-none">
         {overlay}
       <TouchableOpacity onPress={this.switchState.bind(this)} style={style.btn}>
         <View style={[style.btnVisible, (enabled ? style.btnVisibleEnabled : null)]} />

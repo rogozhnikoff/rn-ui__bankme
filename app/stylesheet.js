@@ -99,6 +99,9 @@ const APP = {
   'wrapper': {
     flex: 1,
     //flexDirection: 'column',
+    backgroundColor: '#0c99e2',
+  },
+  'wrapper-screen': {
     backgroundColor: '#cfcfcf',
   },
   'screen': {

@@ -38,20 +38,21 @@ class Welcome extends React.Component {
 
     const slideSize = {width: width * .94, height: height * .89};
 
-    return (<View style={[this.props.style, {backgroundColor: 'transparent', paddingTop: 6}]}>
-      <Carousel animate={false} loop={false} style={[$$('carousel'), slideSize]}
-          indicatorOffset={20} indicatorSize={12} indicatorSpace={24} inactiveIndicatorColor={'transparent'} indicatorColor={'#fff'}
+    return (<View style={[this.props.style, {backgroundColor: 'white', paddingTop: 6}]}>
+
+      <Carousel animate={false} loop={false} style={[$$('carousel'), slideSize, {backgroundColor: 'transparent'}]}
+          indicatorOffset={50} indicatorSize={12} indicatorSpace={24} inactiveIndicatorColor={'transparent'} indicatorColor={'#fff'}
           indicatorStyle={{borderWidth: 1, borderColor: '#fff'}}
           inactiveIndicatorStyle={{borderWidth: 1, borderColor: '#fff'}}
       >
 
 
-        <View style={[$$('carousel-item'), {height: slideSize.height, width: width}]}>
+        <View style={[$$('carousel-item'), {height: slideSize.height, width: width}, {backgroundColor: 'transparent'}]}>
           <Image
               source={require('../assets/welcome/homescreen_2x_326ppi.png')}
-              style={[$$('carousel-bg'), slideSize]} resizeMode="cover">
+              style={[$$('carousel-bg'), slideSize, {backgroundColor: 'transparent'}]} resizeMode="cover">
 
-            <View style={$$('carousel-overlay')}>
+            <View style={[$$('carousel-overlay'), {backgroundColor: 'transparent'}]}>
               <Text style={$$('welcome-title')}>Automatically roundup purchases and invest the change</Text>
             </View>
           </Image>
@@ -83,7 +84,8 @@ class Welcome extends React.Component {
         left: 0,
         right: 0,
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'transparent'
       }} pointerEvents="box-none">
         <UI.Button style={{marginTop: 0}} color="blue">Get Started</UI.Button>
       </View>
