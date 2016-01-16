@@ -22,29 +22,17 @@ const $$ = require('../stylesheet').get;
 
 module.exports = (props) => {
 
-  const onEvents = reduce(props, function (memo, method, key) {
-    // todo: it's dirty
-    if (key.slice(0, 2) === 'on') {
-      memo[key] = method;
-    }
-    return memo;
-  }, {});
+  //const onEvents = reduce(props, function (memo, method, key) {
+  //  // todo: it's dirty
+  //  if (key.slice(0, 2) === 'on') {
+  //    memo[key] = method;
+  //  }
+  //  return memo;
+  //}, {});
 
-  return (<TouchableOpacity {...onEvents}>
-    <View {...props} style={[{
-      flex: 1, alignItems: 'center', marginTop: 8, marginBottom: 8,
-      paddingTop: 17, paddingBottom: 17, paddingLeft: 17, paddingRight: 17,
+  return (<TouchableOpacity {...props} style={[$$('button'), {
       backgroundColor: props.color ? props.color : 'transparent',
-      borderRadius: 1
     }, props.style]}>
-      <Text style={[{
-        //flex: 1,
-        color: props.color ? 'white' : '#0c99e2',
-        fontSize: 23,
-        //fontFamily: props.color ? 'Circe Thin' : 'Lato Light Regular',
-        //fontFamily: props.color ? 'CRC15' : 'lato_light',
-        //fontFamily: 'lato_light',
-      }, props.labelStyle]}>{props.children}</Text>
-    </View>
+      <Text style={[$$('button-label'), {color: props.color ? 'white' : '#0c99e2'}, props.labelStyle]}>{props.children}</Text>
   </TouchableOpacity>)
 };

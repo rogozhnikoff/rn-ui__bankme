@@ -6,17 +6,58 @@ const {reduce, assign} = _;
 var __ENV = 'development';
 
 
+/**
+ Fonts on home screen - fontFamily: 'Circe-Thin'
+ Fonts on signup - fontFamily: 'Lato-Light'
+ */
+
+
+
 const color = {
   dev: hexToRgb('#000', .7)
 };
 
 const THEME = {
-  'h2': {
-    marginTop: 14,
-    marginBottom: 6
+  'font-lato': {
+    fontFamily: 'Lato-Light'
   },
-  'h2-text': {
-    fontSize: 20
+  'font-circle': {
+    fontFamily: 'Circe-Thin'
+  },
+
+
+  'h1': {
+    marginTop: 14,
+    marginBottom: 6,
+    fontSize: 20,
+  },
+
+  'h2': {
+    marginTop: 11,
+    marginBottom: 4,
+    fontSize: 18,
+  },
+  'h3': {
+    marginTop: 8,
+    marginBottom: 3,
+    fontSize: 16,
+  },
+
+
+  'button': {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 8,
+    marginBottom: 8,
+    paddingTop: 17,
+    paddingBottom: 17,
+    paddingLeft: 17,
+    paddingRight: 17,
+    borderRadius: 1,
+  },
+  'button-label': {
+    textAlign: 'center',
+    fontSize: 23,
   },
 
   'input': {
@@ -91,6 +132,7 @@ const APP = {
   },
   'header-title-text': {
     fontSize: 20,
+    fontFamily: 'Lato-Light'
   },
   'header-title-progressbar': {
     height: 5,
@@ -119,7 +161,6 @@ const APP = {
   },
 
 
-
   'quote': {
     marginTop: 3,
     marginBottom: 4,
@@ -130,8 +171,6 @@ const APP = {
   'quote-yellow': {
     backgroundColor: '#ffff99',
   },
-
-
 
 
   'paragraph': {
@@ -156,7 +195,11 @@ const APP = {
     //flex: 1,
 
   },
-  'choosebank-label': {},
+  'choosebank-label': {
+    fontFamily: 'Lato-Light',
+    fontSize: 40,
+    textAlign: 'center'
+  },
 
 
   'input-wrap': {
@@ -165,9 +208,7 @@ const APP = {
   'input-wrap-label': {
     fontSize: 22
   },
-  'input-wrap-field': {
-
-  },
+  'input-wrap-field': {},
 
 
   'black-input': {
@@ -209,7 +250,6 @@ const APP = {
   },
 
 
-
   'bluepage': {
     backgroundColor: '#0c99e2',
     alignItems: 'center',
@@ -241,7 +281,6 @@ const APP = {
     marginBottom: 5
   }
 }
-
 
 
 const ALLSTYLES = __ENV === 'development'

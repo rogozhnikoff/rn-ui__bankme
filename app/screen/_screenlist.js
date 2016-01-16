@@ -14,6 +14,7 @@ const itemStyle = {
   paddingTop: 5,
 }
 
+
 class _PageList extends React.Component {
   render() {
     console.log('render of _PageList', this.props, this.state);

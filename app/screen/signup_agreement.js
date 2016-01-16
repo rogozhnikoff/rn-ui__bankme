@@ -15,7 +15,7 @@ class SignupAgreement extends React.Component {
     console.log('render of SignupAgreement', this.props, this.state);
 
     return (<View style={this.props.style}>
-        <UI.H2 style={{alignSelf: 'center', fontSize: 18}} boxStyle={{marginTop: 12, marginBottom: 14}}>TERMS OF SERVICE</UI.H2>
+        <Text style={[$$('h2 font-lato'), {textAlign: 'center', fontSize: 18, marginTop: 12, marginBottom: 14}]}>TERMS OF SERVICE</Text>
 
         <Text style={$$('quote quote-yellow')}>
           BY AGREEING...

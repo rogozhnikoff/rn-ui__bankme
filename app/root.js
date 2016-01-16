@@ -4,6 +4,8 @@ const { Text, View, PropTypes, ScrollView } = React;
 const $$ = require('./stylesheet').get;
 const Perfecta = require('../dev/perfecta');
 
+//const Router = require('react-native-router');
+
 /* ROUTES */
 const routes = (function (list) {
   return function (name) {
@@ -29,7 +31,8 @@ class Root extends React.Component {
 
     this.state = {
       route: '_screenlist',
-      //route: 'bluepage',
+      //route: 'signup/whosyourbank',
+      //route: 'signup/agreement',
     }
   }
 
@@ -54,11 +57,15 @@ class Root extends React.Component {
     }.bind(this))();
 
     return (<View style={$$('wrapper')}>
+
       <Screen toRoute={this.toRoute.bind(this)} />
       <Perfecta source={require('../dev/design/aggrement_1.png')} opacity={.3} />
     </View>)
   }
 }
+//<Router firstRoute={
+//    component: ''
+//    } />
 
 module.exports = Root;
 
