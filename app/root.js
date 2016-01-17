@@ -31,7 +31,9 @@ function getScreen(name) {
     const SignupWrapper = require('./screen/signup');
     const SignupPage = routes(name);
     return function (props) {
-      return (<SignupWrapper title={SignupPage.title} {...props}>{(props) => <SignupPage style={props.style}/>}</SignupWrapper>)
+      return (<SignupWrapper title={SignupPage.title} {...props}>
+        {(insideProps) => <SignupPage style={insideProps.style} toRoute={props.toRoute} />}
+      </SignupWrapper>)
     }
   } else {
     return routes(name)
@@ -49,7 +51,8 @@ class Root extends React.Component {
     this.state = {
       anim: new Animated.Value(0),
 
-      currentScreen: 'signup/whoareyou',
+      currentScreen: 'signup/whosyourbank',
+      //currentScreen: '_screenlist',
       newScreen: null,
 
       inAnimation: false,
@@ -130,7 +133,7 @@ class Root extends React.Component {
 
   }
 
-  toRoute(name) {
+  toScreen(name) {
     //console.log('::::::::::::::::::::::::::::::::: toRoute', name)
     this.setState({newScreen: name});
 
@@ -157,7 +160,7 @@ class Root extends React.Component {
               newScreen: null
             });
           });
-    }, 200);
+    }, 0);
   }
 
   render() {
@@ -173,13 +176,13 @@ class Root extends React.Component {
       // создаем новый скрин
       NewScreen = getScreen(newScreen);
       NewScreenComponent = <Animated.View style={[screenStyles, newScreenStyles]}>
-        <NewScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
+        <NewScreen toScreen={this.toScreen.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
       </Animated.View>
     }
 
     const CurrentScreen = getScreen(currentScreen);
     const CurrentScreenComponent = <Animated.View style={[screenStyles, newScreen ? currentScreenStyles : emptyScreenStyles]}>
-      <CurrentScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
+      <CurrentScreen toScreen={this.toScreen.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
     </Animated.View>;
 
     console.log('////// NewScreen', NewScreen);

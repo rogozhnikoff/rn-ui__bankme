@@ -16,13 +16,14 @@ class SignupWhosyourbank extends React.Component {
     console.log('render of SignupWhosyourbank', this.props, this.state);
 
     const optionWidth = parseInt((width * 0.85) / 2);
-    const logoWidth = optionWidth * .8;
+    const logoSize = optionWidth * .8;
 
     const $$optionsStyle = assign({}, $$('choosebank-option'),
         {width: optionWidth});
     const $$logoStyle = assign({}, $$('choosebank-logo'),
-        {width: logoWidth, height: logoWidth, borderRadius: logoWidth * .5});
+        {width: logoSize, height: logoSize, borderRadius: logoSize * .5});
 
+    console.log(':::::', this.props);
 
     return (<View style={this.props.style}>
 
@@ -50,7 +51,8 @@ class SignupWhosyourbank extends React.Component {
 
       </UI.Radio>
 
-      <UI.Button style={{}}>Next</UI.Button>
+
+      <UI.Button style={{}} onPress={() => this.props.toRoute('signup/linkbank')}>Next</UI.Button>
     </View>)
   }
 }

@@ -7,23 +7,8 @@ const _ = require('lodash');
 const {reduce, assign} = _;
 const $$ = require('../stylesheet').get;
 
-const {width} = Dimensions.get('window')
-
-class Header extends React.Component {
-  render() {
-    return (<View style={[$$('header'), this.props.style]}>
-      <View style={$$('header-panel')} />
-
-      <View style={$$('header-title')}>
-        <Text style={$$('header-title-text')}>{this.props.title}</Text>
-      </View>
-
-      <View style={$$('header-title-progressbar')}>
-        <View style={[$$('progressbar'), {width: width * this.props.progress}]} />
-      </View>
-    </View>)
-  }
-}
+const {width} = Dimensions.get('window');
+const Router = require('../vendor/react-native-router');
 
 
 class SignupScreen extends React.Component {
@@ -32,12 +17,21 @@ class SignupScreen extends React.Component {
 
     const Screen = this.props.children;
 
+    //<Header title={this.props.title.toUpperCase()} progress={.3} />
     return (<View style={[this.props.style]}>
-      <Header title={this.props.title.toUpperCase()} progress={.3} />
+      <Router
+          firstRoute={{
+            name: 'atata',
+            component: (props) => {
+              return <ScrollView style={$$('signup-scroll')} showsVerticalScrollIndicator={true}>
+                <Screen {...props} style={[props.style, $$('signup-screen')]}/>
+              </ScrollView>
+            }
+          }}
+      />
 
-      <ScrollView style={$$('signup-scroll')} showsVerticalScrollIndicator={true}>
-        <Screen style={$$('signup-screen')} />
-      </ScrollView>
+
+
     </View>)
   }
 }
