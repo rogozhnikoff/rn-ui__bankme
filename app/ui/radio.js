@@ -37,7 +37,7 @@ class Radio extends React.Component {
         }.bind(this)
     );
 
-    return (<View style={this.props.style}>
+    return (<View style={[this.props.style, {}]}>
       {items}
     </View>)
   }

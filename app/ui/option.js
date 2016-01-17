@@ -6,6 +6,7 @@ const {
 const _ = require('lodash');
 const {reduce, assign, filter, isString} = _;
 
+const $$ = require('../stylesheet').get;
 
 class Option extends React.Component {
   constructor(props) {
@@ -19,18 +20,19 @@ class Option extends React.Component {
     const {isSelected} = this.props;
 
     const children = isString(this.props.children)
-        ? <Text style={{color: isSelected ? 'black' : 'gray'}}>{this.props.children}</Text>
+        ? <Text style={[$$('font-lato'), {color: isSelected ? 'black' : 'gray', fontSize: 18}]}>{this.props.children}</Text>
         : this.props.children;
 
 
+    const cSize = 14;
     const circleStyle = {
-      width: 12, height: 12, borderWidth: .5, borderRadius: 12 / 2,
-      alignSelf: 'center',
+      width: cSize, height: cSize, borderWidth: .5, borderRadius: cSize / 2,
+      alignSelf: 'flex-start',
       borderColor: isSelected ? 'black' : 'gray',
       backgroundColor: isSelected ? 'gray' : 'transparent'
     };
     const optionStyle = [{
-      flexDirection: "row", marginTop: 6, marginBottom: 8
+      flexDirection: "row", paddingTop: 18, paddingBottom: 22
     }, this.props.style]
 
     return (<TouchableOpacity onPress={this.props.onPress}

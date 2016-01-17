@@ -42,13 +42,18 @@ const THEME = {
     marginBottom: 3,
     fontSize: 16,
   },
+  'form-head': {
+    fontFamily: 'Lato-Light',
+    marginTop: 3, fontSize: 21, marginBottom: 1
+  },
+  'form-group': {marginBottom: 16},
 
 
   'button': {
     flex: 1,
     alignItems: 'center',
     marginTop: 8,
-    marginBottom: 8,
+    marginBottom: 9,
     paddingTop: 17,
     paddingBottom: 17,
     paddingLeft: 17,
@@ -58,21 +63,25 @@ const THEME = {
   'button-label': {
     textAlign: 'center',
     fontSize: 23,
+    fontFamily: 'Lato-Light',
   },
 
   'input': {
-    height: 53,
+    height: 50,
     //backgroundColor: color.dev,
-    marginTop: 2,
-    marginBottom: 2,
+    marginTop: 1,
+    marginBottom: 3,
     justifyContent: 'center',
   },
   'input-field': {
-    fontSize: 16,
-    height: 53,
+    fontFamily: 'Lato-Light',
+    fontSize: 18,
+    height: 50,
+    //lineHeight: 100,
     //backgroundColor: 'green',
     paddingRight: 8,
     paddingLeft: 8,
+    alignItems: 'center',
   },
   'input-underline': {
     position: 'absolute',

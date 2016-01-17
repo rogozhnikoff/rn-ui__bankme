@@ -49,12 +49,11 @@ class Root extends React.Component {
     this.state = {
       anim: new Animated.Value(0),
 
-      currentScreen: '_screenlist',
+      currentScreen: 'signup/whoareyou',
       newScreen: null,
 
       inAnimation: false,
 
-      //route: 'signup/whosyourbank',
       //route: 'signup/agreement',
     }
   }
@@ -63,11 +62,11 @@ class Root extends React.Component {
     const screenStyles = {
       position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
       width, height
-    }
-    const oldScreenStyles = {
+    };
+    const currentScreenStyles = {
       opacity: this.state.anim.interpolate({
         inputRange: [0, 1],
-        outputRange: [1, .3]
+        outputRange: [1, 0]
       }),
       transform: [{
         perspective: this.state.anim.interpolate({
@@ -87,14 +86,14 @@ class Root extends React.Component {
       }, {
         translateX: this.state.anim.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, width * -1]
+          outputRange: [0, (width * -1)]
         })
       }]
     };
     const newScreenStyles = {
       opacity: this.state.anim.interpolate({
         inputRange: [0, .7],
-        outputRange: [0, .7]
+        outputRange: [0, 1]
       }),
       transform: [{
         perspective: this.state.anim.interpolate({
@@ -114,12 +113,16 @@ class Root extends React.Component {
       }, {
         translateX: this.state.anim.interpolate({
           inputRange: [0, 1],
-          outputRange: [width, 0]
+          outputRange: [width, -1] // dirty hack?
         })
       }]
     };
+    const emptyScreenStyles = {
+      opacity: 1,
+      transform: [{perspective: width}, {rotateY: '0deg'}, {scale: 1}, {translateX: 0}]
+    }
     return {
-      screenStyles, oldScreenStyles, newScreenStyles
+      screenStyles, currentScreenStyles, newScreenStyles
     }
   }
 
@@ -128,6 +131,7 @@ class Root extends React.Component {
   }
 
   toRoute(name) {
+    //console.log('::::::::::::::::::::::::::::::::: toRoute', name)
     this.setState({newScreen: name});
 
     // запускаем анимацию
@@ -148,6 +152,7 @@ class Root extends React.Component {
 
             // меняем местами
             this.setState({
+              anim: new Animated.Value(0),
               currentScreen: name,
               newScreen: null
             });
@@ -156,7 +161,7 @@ class Root extends React.Component {
   }
 
   render() {
-    const {screenStyles, oldScreenStyles, newScreenStyles} = this.getStyles()
+    const {screenStyles, currentScreenStyles, newScreenStyles, emptyScreenStyles} = this.getStyles()
     const {currentScreen, newScreen} = this.state;
     const {inAnimate} = this;
 
@@ -171,18 +176,19 @@ class Root extends React.Component {
         <NewScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
       </Animated.View>
     }
+
     const CurrentScreen = getScreen(currentScreen);
-    const CurrentScreenComponent = <Animated.View style={[screenStyles, oldScreenStyles]}>
+    const CurrentScreenComponent = <Animated.View style={[screenStyles, newScreen ? currentScreenStyles : emptyScreenStyles]}>
       <CurrentScreen toRoute={this.toRoute.bind(this)} style={[$$('wrapper-screen'), {width, height}]} />
-    </Animated.View>
+    </Animated.View>;
 
     console.log('////// NewScreen', NewScreen);
-    console.log('////// CurrentScreen', CurrentScreen);
+    console.log('////// CurrentScreen', CurrentScreen, currentScreenStyles);
 
     return (<View style={$$('wrapper')}>
       {NewScreenComponent}
       {CurrentScreenComponent}
-      <Perfecta source={require('../dev/design/aggrement_1.png')} opacity={.3} />
+      <Perfecta source={require('../dev/design/whoareyou_2.png')} opacity={.4} />
     </View>)
   }
 }
