@@ -13,8 +13,6 @@ const Router = require('../vendor/react-native-router');
 
 class SignupScreen extends React.Component {
   render() {
-    console.log('render of SignupScreen', this.props, this.state);
-
     const Screen = this.props.children;
 
     //<Header title={this.props.title.toUpperCase()} progress={.3} />

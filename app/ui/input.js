@@ -29,8 +29,6 @@ class Input extends React.Component {
   }
 
   render() {
-    console.log('render of Input', this.props, this.state);
-
     const value = this.state.text || this.props.value;
 
     var lineStyle = STYLE.multi({

@@ -13,8 +13,6 @@ const UI = require('../ui');
 
 class SignupWhosyourbank extends React.Component {
   render() {
-    console.log('render of SignupWhosyourbank', this.props, this.state);
-
     const optionWidth = parseInt((width * 0.85) / 2);
     const logoSize = optionWidth * .8;
 
@@ -22,8 +20,6 @@ class SignupWhosyourbank extends React.Component {
         {width: optionWidth});
     const $$logoStyle = assign({}, $$('choosebank-logo'),
         {width: logoSize, height: logoSize, borderRadius: logoSize * .5});
-
-    console.log(':::::', this.props);
 
     return (<View style={this.props.style}>
 

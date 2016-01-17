@@ -34,8 +34,6 @@ const {width, height} = Dimensions.get('window');
 
 class Welcome extends React.Component {
   render() {
-    console.log('render of Welcome', this.props, this.state);
-
     const slideSize = {width: width * .94, height: height * .89};
 
     return (<View style={[this.props.style, {backgroundColor: 'white', paddingTop: 6}]}>

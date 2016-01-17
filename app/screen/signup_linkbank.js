@@ -11,8 +11,6 @@ const UI = require('../ui');
 
 class SignupLinkbank extends React.Component {
   render() {
-    console.log('render of SignupLinkbank', this.props, this.state);
-
     const iconStyle = {
       width: 142 * .8,
       height: 179 * .8,

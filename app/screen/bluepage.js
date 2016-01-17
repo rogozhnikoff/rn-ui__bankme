@@ -21,8 +21,6 @@ class Bluepage extends React.Component {
   }
 
   render() {
-    console.log('render of Bluepage', this.props, this.state);
-
     const items = {
       'personal': [require('../assets/whiteIcons/grey/grey_personal.png'), require('../assets/whiteIcons/white/white_personal.png')],
       'questions': [require('../assets/whiteIcons/grey/grey_questions.png'), require('../assets/whiteIcons/white/white_questions.png')],

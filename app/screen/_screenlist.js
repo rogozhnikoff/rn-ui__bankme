@@ -17,25 +17,19 @@ const itemStyle = {
 
 class _PageList extends React.Component {
   render() {
-    console.log('render of _PageList', this.props, this.state);
-
-    return (<View style={this.props.style}>
+    const {gotoScreen} = this.props;
+    return (<View style={[this.props.style, {backgroundColor: 'lightgray'}]}>
       <ScrollView style={{flex: 1, height: 667}}>
-        <UI.H2 style={{
-          fontSize: 30,
-          alignSelf: 'center',
-          margin: 20,
-          marginTop: 55,
-        }}>Hey bro, i'm bankMe</UI.H2>
+        <UI.H2 style={[$$('font-lato'), {fontSize: 30, alignSelf: 'center', margin: 20, marginTop: 55}]}>Hey bro, i'm bankMe</UI.H2>
 
-        <UI.Button onPress={() => this.props.toRoute('bluepage')} style={itemStyle}>- bluepage -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('welcome')} style={itemStyle}>- welcome -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('signup/agreement')} style={itemStyle}>- signup/agreement -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('signup/financial')} style={itemStyle}>- signup/financial -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('signup/honeymoney')} style={itemStyle}>- signup/honeymoney -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('signup/linkbank')} style={itemStyle}>- signup/linkbank -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('signup/whoareyou')} style={itemStyle}>- signup/whoareyou -</UI.Button>
-        <UI.Button onPress={() => this.props.toRoute('signup/whosyourbank')} style={itemStyle}>- signup/whosyourbank -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('bluepage')} style={itemStyle}>- bluepage -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('welcome')} style={itemStyle}>- welcome -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/agreement')} style={itemStyle}>- signup/agreement -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/financial')} style={itemStyle}>- signup/financial -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/honeymoney')} style={itemStyle}>- signup/honeymoney -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/linkbank')} style={itemStyle}>- signup/linkbank -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/whoareyou')} style={itemStyle}>- signup/whoareyou -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/whosyourbank')} style={itemStyle}>- signup/whosyourbank -</UI.Button>
 
         <UI.H2 style={{
           fontSize: 12,

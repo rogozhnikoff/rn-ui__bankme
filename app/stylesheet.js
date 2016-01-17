@@ -14,7 +14,7 @@ var __ENV = 'development';
 
 
 const color = {
-  dev: hexToRgb('#000', .7)
+  dev: hex2rgb('#FF3B00', .7)
 };
 
 const THEME = {
@@ -108,10 +108,10 @@ const APP = {
   'wrapper': {
     flex: 1,
     //flexDirection: 'column',
-    backgroundColor: '#0c99e2',
+    backgroundColor: __ENV === 'development' ? 'red' : 'transparent',
   },
   'wrapper-screen': {
-    backgroundColor: '#cfcfcf',
+    backgroundColor: 'pink',
   },
   'screen': {
     flex: 1,
@@ -310,7 +310,9 @@ const METHODS = {
   },
   multi() {
     return this.get(classNames.apply(null, arguments))
-  }
+  },
+
+  hex2rgb
 }
 
 /*
@@ -327,7 +329,7 @@ module.exports = METHODS;
 
 
 // @credits: честно украл откуда-то
-function hexToRgb(hex, opacity) {
+function hex2rgb(hex, opacity) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$$/i
   hex = hex.replace(shorthandRegex, function (m, r, g, b) {
     return r + r + g + g + b + b;

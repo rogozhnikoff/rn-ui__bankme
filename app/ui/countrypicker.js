@@ -25,8 +25,6 @@ class Countrypicker extends React.Component {
     }
   }
   render() {
-    console.log('render of Countrypicker', this.props, this.state);
-
     return (<View style={this.props.style}>
       <PickerIOS
           selectedValue={this.state.value}

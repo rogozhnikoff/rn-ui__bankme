@@ -16,7 +16,6 @@ class Option extends React.Component {
   }
 
   render() {
-    console.log('render of Option', this.props, this.state);
     const {isSelected} = this.props;
 
     const children = isString(this.props.children)

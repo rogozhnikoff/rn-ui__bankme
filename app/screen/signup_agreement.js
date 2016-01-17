@@ -12,8 +12,6 @@ const {width} = Dimensions.get('window');
 
 class SignupAgreement extends React.Component {
   render() {
-    console.log('render of SignupAgreement', this.props, this.state);
-
     return (<View style={this.props.style}>
         <Text style={[$$('h2 font-lato'), {textAlign: 'center', fontSize: 18, marginTop: 12, marginBottom: 14}]}>TERMS OF SERVICE</Text>
 

@@ -11,8 +11,6 @@ const UI = require('../ui');
 
 class SignupWhoareyou extends React.Component {
   render() {
-    console.log('render of SignupWhoareyou', this.props, this.state);
-
     return (<View style={[this.props.style,
       {paddingLeft: 35, paddingRight: 35, paddingTop: 24, marginLeft: 0, marginRight: 0, paddingBottom: 7}]}>
 

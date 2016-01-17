@@ -12,8 +12,6 @@ const UI = require('../ui');
 
 class SignupFinancial extends React.Component {
   render() {
-    console.log('render of SignupFinancial', this.props, this.state);
-
     return (<View style={this.props.style}>
 
       <View style={$$('form-group')}>

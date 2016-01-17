@@ -25,8 +25,6 @@ class Datepicker extends React.Component {
   }
 
   render() {
-    console.log('render of Datepicker', this.state.date);
-
     return (<View style={this.props.style}>
       <DatePickerIOS
           date={this.state.date}

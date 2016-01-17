@@ -18,8 +18,6 @@ class Radio extends React.Component {
   }
 
   render() {
-    console.log('render of Radio', this.props, this.state);
-
     const selectedValue = this.state.value;
 
     // todo: option не обязательно в первом слое лежит!
