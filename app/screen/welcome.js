@@ -23,6 +23,8 @@ const Carousel = require('../vendor/react-native-carousel');
 
 //require('../assets/welcome/homescreen_2x_326ppi.png')
 const {width, height} = Dimensions.get('window');
+const { BlurView, VibrancyView } = require('react-native-blur');
+
 
 //const TextShadow = (props) => {
 //  return <View>
@@ -59,18 +61,20 @@ class Welcome extends React.Component {
 
         <View style={[$$('carousel-item'), {height: slideSize.height, width: width}]}>
           <Image
-              source={require('../assets/welcome/homescreen_2x_326ppi2.png')}
+              source={require('../assets/welcome/homescreen_2x_326ppi.png')}
               style={[$$('carousel-bg'), slideSize]} resizeMode="cover">
 
-            <View style={{}}>
-              <Text style={$$('welcome-title')}>Join the bankMe family and start savings today</Text>
+            <BlurView blurType="light" style={slideSize}>
+              <View style={{}}>
+                <Text style={$$('welcome-title')}>Join the bankMe family and start savings today</Text>
 
-              <View  style={[$$('carousel-overlay'), {marginTop: 50}]}>
-                <UI.Input placeholder="Phone number" style={$$('black-input')} placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
-                <UI.Input placeholder="Email" style={$$('black-input')}  placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
-                <UI.Input placeholder="Password" style={$$('black-input')}  placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
+                <View  style={[$$('carousel-overlay'), {marginTop: 50}]}>
+                  <UI.Input placeholder="Phone number" style={$$('black-input')} placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
+                  <UI.Input placeholder="Email" style={$$('black-input')}  placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
+                  <UI.Input placeholder="Password" style={$$('black-input')}  placeholderTextColor={'#cecac6'} textStyle={{color: 'white'}} hideLine />
+                </View>
               </View>
-            </View>
+            </BlurView>
           </Image>
         </View>
 
@@ -85,15 +89,15 @@ class Welcome extends React.Component {
         alignItems: 'center',
         backgroundColor: 'transparent'
       }} pointerEvents="box-none">
-        <UI.Button style={{marginTop: 0}} color="blue">Get Started</UI.Button>
+        <UI.Button style={{marginTop: 0}} color="blue" onPress={() => this.props.gotoScreen('signup/whoareyou')}>Get Started</UI.Button>
       </View>
 
       <View style={$$('haveanaccount')}>
         <TouchableOpacity>
-        <Text style={$$('haveanaccount-text')}>
+          <Text style={$$('haveanaccount-text')}>
           {'Have an account? '}
-          <Text style={$$('haveanaccount-btn')}>Sign in</Text>
-        </Text>
+            <Text style={$$('haveanaccount-btn')}>Sign in</Text>
+          </Text>
         </TouchableOpacity>
       </View>
 

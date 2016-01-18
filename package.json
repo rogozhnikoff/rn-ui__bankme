@@ -9,6 +9,7 @@
     "classnames": "^2.2.3",
     "lodash": "^3.10.1",
     "react-native": "^0.17.0",
+    "react-native-blur": "^0.7.9",
     "react-native-carousel": "^0.4.4",
     "react-native-router": "^0.2.1",
     "react-timer-mixin": "^0.13.3"
