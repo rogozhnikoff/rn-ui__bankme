@@ -55,6 +55,7 @@ class SignupAgreement extends React.Component {
   }
 }
 SignupAgreement.title = 'Make it official';
+SignupAgreement.progress = .99;
 
 SignupAgreement.defaultProps = {};
 SignupAgreement.propTypes = {};

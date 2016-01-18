@@ -45,6 +45,7 @@ class SignupFinancial extends React.Component {
   }
 }
 SignupFinancial.title = 'Keep it up';
+SignupFinancial.progress = .45;
 
 SignupFinancial.defaultProps = {};
 SignupFinancial.propTypes = {};

@@ -57,7 +57,9 @@ class SignupWhosyourbank extends React.Component {
     </View>)
   }
 }
-SignupWhosyourbank.title = 'Choose your bank'
+SignupWhosyourbank.title = 'Choose your bank';
+SignupWhosyourbank.progress = .16;
+
 SignupWhosyourbank.defaultProps = {};
 /* https://facebook.github.io/react/docs/reusable-components.html */
 SignupWhosyourbank.propTypes = {};

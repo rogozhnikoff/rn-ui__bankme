@@ -52,6 +52,7 @@ class SignupWhoareyou extends React.Component {
   }
 }
 SignupWhoareyou.title = 'Lets get to know you';
+SignupWhoareyou.progress = .12;
 
 SignupWhoareyou.defaultProps = {};
 SignupWhoareyou.propTypes = {};

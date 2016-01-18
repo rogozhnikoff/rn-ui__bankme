@@ -50,6 +50,7 @@ class SignupLinkbank extends React.Component {
   }
 }
 SignupLinkbank.title = 'Link accounts for roundups';
+SignupLinkbank.progress = .56;
 
 SignupLinkbank.defaultProps = {};
 SignupLinkbank.propTypes = {};

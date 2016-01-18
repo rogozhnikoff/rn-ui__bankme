@@ -21,7 +21,7 @@ const $$ = require('../../../stylesheet').get;
 function ProgressBar (props) {
   return <View style={[$$('header-title-progressbar'), {width}]}>
     <View style={[$$('progressbar'), {
-      width: width * (props.progress || .8)}]
+      width: width * (props.progress || 0)}]
         } />
   </View>
 }
@@ -152,7 +152,7 @@ var NavBarContent = React.createClass({
     //{leftCorner}
     //{rightCorner}
     return (
-      <Header style={[styles.navbar, this.props.route.headerStyle, transitionStyle]}>
+      <Header style={[styles.navbar, this.props.route.headerStyle, transitionStyle]} progress={this.props.route.progress}>
         {titleComponent}
       </Header>
     );

@@ -50,6 +50,7 @@ class SignupHoneymoney extends React.Component {
   }
 }
 SignupHoneymoney.title = 'Lets get yo know you';
+SignupHoneymoney.progress = .8;
 
 SignupHoneymoney.defaultProps = {};
 SignupHoneymoney.propTypes = {};

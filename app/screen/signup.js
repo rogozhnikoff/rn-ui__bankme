@@ -28,7 +28,8 @@ class SignupScreen extends React.Component {
           ref="router"
           firstRoute={{
             name: Child.title,
-            component: Child
+            component: Child,
+            progress: Child.progress,
           }}
       />
     </View>)
@@ -38,11 +39,12 @@ class SignupScreen extends React.Component {
 
 SignupScreen.insideMixin = {
   gotoRoute(path) {
-    const Component = routes.raw(path);
+    const Child = routes.raw(path);
 
     this.props.toRoute({
-      name: Component.title,
-      component: Component
+      name: Child.title,
+      component: Child,
+      progress: Child.progress,
     })
   },
   gotoScreen: console.error
