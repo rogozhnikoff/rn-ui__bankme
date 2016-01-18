@@ -10,6 +10,11 @@ const $$ = require('../stylesheet').get;
 const UI = require('../ui');
 
 class SignupLinkbank extends React.Component {
+  constructor(props) {
+    super(props);
+
+    assign(this, require('./signup').insideMixin)
+  }
   render() {
     const iconStyle = {
       width: 142 * .8,
@@ -40,7 +45,7 @@ class SignupLinkbank extends React.Component {
         <UI.Input style={$$('input-wrap-field')} placeholder="Password" />
       </View>
 
-      <UI.Button>Next</UI.Button>
+      <UI.Button onPress={() => this.gotoRoute('signup/honeymoney')}>Next</UI.Button>
     </View>)
   }
 }

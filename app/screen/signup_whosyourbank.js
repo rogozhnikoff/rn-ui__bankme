@@ -12,6 +12,11 @@ const {width} = Dimensions.get('window');
 const UI = require('../ui');
 
 class SignupWhosyourbank extends React.Component {
+  constructor(props) {
+    super(props);
+
+    assign(this, require('./signup').insideMixin)
+  }
   render() {
     const optionWidth = parseInt((width * 0.85) / 2);
     const logoSize = optionWidth * .8;
@@ -48,7 +53,7 @@ class SignupWhosyourbank extends React.Component {
       </UI.Radio>
 
 
-      <UI.Button style={{}} onPress={() => this.props.toRoute('signup/linkbank')}>Next</UI.Button>
+      <UI.Button style={{}} onPress={() => this.gotoRoute('signup/financial')}>Next</UI.Button>
     </View>)
   }
 }

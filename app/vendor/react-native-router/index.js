@@ -9,6 +9,7 @@ var {
   Navigator,
   StatusBarIOS,
   View,
+  ScrollView
 } = React;
 
 
@@ -78,8 +79,8 @@ var Router = React.createClass({
     var didStartDrag = function(evt) {
       var x = evt.nativeEvent.pageX;
       if (x < 28) {
-        this.setState({ 
-          dragStartX: x, 
+        this.setState({
+          dragStartX: x,
           didSwitchView: false
         });
         return true;
@@ -107,25 +108,27 @@ var Router = React.createClass({
     if (this.props.hideNavigationBar) {
       extraStyling.marginTop = 0;
     }
-    
+
     return (
-      <View
-        style={[styles.container, this.props.bgStyle, extraStyling]}
-        onStartShouldSetResponder={didStartDrag}
-        onResponderMove={didMoveFinger}
-        onResponderTerminationRequest={preventDefault}>
-        <Content
-          name={route.name}
-          index={route.index}
-          data={route.data}
-          toRoute={goForward}
-          toBack={goBackwards}
-          reset={goToFirstRoute}
-          customAction={customAction}
-        />
-      </View>
+        <View
+            style={[styles.container, this.props.bgStyle, extraStyling]}
+            onStartShouldSetResponder={didStartDrag}
+            onResponderMove={didMoveFinger}
+            onResponderTerminationRequest={preventDefault}>
+          <ScrollView>
+            <Content
+                name={route.name}
+                index={route.index}
+                data={route.data}
+                toRoute={goForward}
+                toBack={goBackwards}
+                reset={goToFirstRoute}
+                customAction={customAction}
+            />
+          </ScrollView>
+        </View>
     )
-    
+
   },
 
   render: function() {
@@ -143,10 +146,10 @@ var Router = React.createClass({
     //if (i++ % 2 !== 0) {
       //var HEADER = this.props.route.headerComponent ? route.headerComponent : NavBarContainer;
 
-      navigationBar = 
+      navigationBar =
       <NavBarContainer
         style={this.props.headerStyle}
-        navigator={navigator} 
+        navigator={navigator}
         currentRoute={this.state.route}
         backButtonComponent={this.props.backButtonComponent}
         rightCorner={this.props.rightCorner}
@@ -176,7 +179,7 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
-    marginTop: 64
+    marginTop: 105
   },
 });
 

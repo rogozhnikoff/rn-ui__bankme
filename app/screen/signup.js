@@ -10,29 +10,50 @@ const $$ = require('../stylesheet').get;
 const {width} = Dimensions.get('window');
 const Router = require('../vendor/react-native-router');
 
+const routes = require('../routes.js')
 
 class SignupScreen extends React.Component {
+  constructor(props) {
+    super(props)
+
+    // dirty!!!
+    SignupScreen.insideMixin.gotoScreen = props.gotoScreen
+  }
   render() {
-    const Screen = this.props.children;
+    const Child = this.props.firstComponent;
 
     //<Header title={this.props.title.toUpperCase()} progress={.3} />
     return (<View style={[this.props.style]}>
       <Router
+          ref="router"
           firstRoute={{
-            name: 'atata',
-            component: (props) => {
-              return <ScrollView style={$$('signup-scroll')} showsVerticalScrollIndicator={true}>
-                <Screen {...props} style={[props.style, $$('signup-screen')]}/>
-              </ScrollView>
-            }
+            name: Child.title,
+            component: Child
           }}
       />
-
-
-
     </View>)
   }
 }
+
+
+SignupScreen.insideMixin = {
+  gotoRoute(path) {
+    const Component = routes.raw(path);
+
+    this.props.toRoute({
+      name: Component.title,
+      component: Component
+    })
+  },
+  gotoScreen: console.error
+};
+//SignupScreen.getInsideComponent = routes.raw;
+
+//(props) => {
+//  return <ScrollView style={$$('signup-scroll')} showsVerticalScrollIndicator={true}>
+//    <Screen {...props} style={[props.style, $$('signup-screen')]} />
+//  </ScrollView>
+//}
 //<Screen {...this.props} style={[this.props.style, STYLES['signup-screen'], {flex: 1}]}   />
 
 

@@ -120,12 +120,15 @@ const APP = {
     alignItems: 'stretch',
   },
   'header': {
-    backgroundColor: color.dev,
-    height: 105,
+    backgroundColor: 'white',
+    flexDirection: 'column',
+    //height: 105,
     //marginBottom: 10,
   },
   'header-panel': {
+    flex: 1,
     backgroundColor: '#0c99e2',
+    //backgroundColor: 'orange',
     height: 20,
   },
   'header-title': {
@@ -133,6 +136,7 @@ const APP = {
     height: 80,
     justifyContent: 'center',
     alignItems: 'center',
+    flex: 1,
 
     //shadowColor: 'red',
     //shadowOpacity: 1,
@@ -147,12 +151,14 @@ const APP = {
     fontFamily: 'Lato-Light'
   },
   'header-title-progressbar': {
+    flex: 1,
     height: 5,
     backgroundColor: 'lightgray',
   },
 
   'progressbar': {
     height: 5,
+    width: 50,
     backgroundColor: '#0c99e2',
     borderTopRightRadius: 2,
     borderBottomRightRadius: 2,

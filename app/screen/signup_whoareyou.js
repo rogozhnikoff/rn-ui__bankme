@@ -10,6 +10,11 @@ const $$ = require('../stylesheet').get;
 const UI = require('../ui');
 
 class SignupWhoareyou extends React.Component {
+  constructor(props) {
+    super(props);
+
+    assign(this, require('./signup').insideMixin)
+  }
   render() {
     return (<View style={[this.props.style,
       {paddingLeft: 35, paddingRight: 35, paddingTop: 24, marginLeft: 0, marginRight: 0, paddingBottom: 7}]}>
@@ -41,7 +46,7 @@ class SignupWhoareyou extends React.Component {
         </UI.Radio>
       </View>
 
-      <UI.Button style={{marginTop: 20}}>Next</UI.Button>
+      <UI.Button style={{marginTop: 20}} onPress={() => this.gotoRoute('signup/whosyourbank')}>Next</UI.Button>
 
     </View>)
   }

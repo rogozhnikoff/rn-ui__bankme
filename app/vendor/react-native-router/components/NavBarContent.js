@@ -14,23 +14,30 @@ var {
 
 
 
-
+/* MY HEADER */
 const {width} = Dimensions.get('window');
 const $$ = require('../../../stylesheet').get;
 
+function ProgressBar (props) {
+  return <View style={[$$('header-title-progressbar'), {width}]}>
+    <View style={[$$('progressbar'), {
+      width: width * (props.progress || .8)}]
+        } />
+  </View>
+}
+
 function Header(props) {
-  return (<View style={[$$('header'), props.style]}>
-    <View style={$$('header-panel')} />
+  console.log('Header styles', props.style);
+  return (<View style={[props.style, $$('header')]}>
+    <View style={[$$('header-panel'), {width}]} />
 
-    <View style={$$('header-title')}>
-      <Text style={$$('header-title-text')}>{props.title || 'TEST'}</Text>
-    </View>
+    <View style={$$('header-title')}>{props.children}</View>
 
-    <View style={$$('header-title-progressbar')}>
-      <View style={[$$('progressbar'), {width: width * props.progress}]} />
-    </View>
+    <ProgressBar {...props} />
   </View>)
 }
+/* MY HEADER */
+
 
 //NavBarContent = Header;
 
@@ -130,8 +137,8 @@ var NavBarContent = React.createClass({
       titleContent = <TitleComponent />;
     } else {
       titleContent = (
-        <Text style={[styles.navbarText, this.props.titleStyle]}>
-          {this.props.route.name}
+        <Text style={[styles.navbarText, this.props.titleStyle, $$('header-title-text')]}>
+          {this.props.route.name ? this.props.route.name.toUpperCase() : '...'}
         </Text>
       );
     }
@@ -142,12 +149,11 @@ var NavBarContent = React.createClass({
       </View>
     );
 
-
+    //{leftCorner}
+    //{rightCorner}
     return (
       <Header style={[styles.navbar, this.props.route.headerStyle, transitionStyle]}>
-        {leftCorner}
         {titleComponent}
-        {rightCorner}
       </Header>
     );
   }
@@ -160,20 +166,20 @@ var styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 64, // Default iOS navbar height
+    //height: 64, // Default iOS navbar height
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    paddingTop: 13
+    //paddingTop: 13
   },
   navbarText: {
-    color: 'white',
-    fontSize: 17,
-    margin: 10,
-    marginTop: 14,
-    fontWeight: '600',
-    textAlign: 'center',
-    alignItems: 'center',
+    //color: 'white',
+    //fontSize: 17,
+    //margin: 10,
+    //marginTop: 14,
+    //fontWeight: '600',
+    //textAlign: 'center',
+    //alignItems: 'center',
   },
   corner: {
     flex: 1,

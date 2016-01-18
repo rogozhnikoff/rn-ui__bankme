@@ -11,6 +11,11 @@ const UI = require('../ui');
 
 
 class SignupFinancial extends React.Component {
+  constructor(props) {
+    super(props);
+
+    assign(this, require('./signup').insideMixin)
+  }
   render() {
     return (<View style={this.props.style}>
 
@@ -35,7 +40,7 @@ class SignupFinancial extends React.Component {
         </UI.Radio>
       </View>
 
-      <UI.Button>Next</UI.Button>
+      <UI.Button onPress={() => this.gotoRoute('signup/linkbank')}>Next</UI.Button>
     </View>)
   }
 }

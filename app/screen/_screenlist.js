@@ -24,12 +24,7 @@ class _PageList extends React.Component {
 
         <UI.Button onPress={() => gotoScreen('bluepage')} style={itemStyle}>- bluepage -</UI.Button>
         <UI.Button onPress={() => gotoScreen('welcome')} style={itemStyle}>- welcome -</UI.Button>
-        <UI.Button onPress={() => gotoScreen('signup/agreement')} style={itemStyle}>- signup/agreement -</UI.Button>
-        <UI.Button onPress={() => gotoScreen('signup/financial')} style={itemStyle}>- signup/financial -</UI.Button>
-        <UI.Button onPress={() => gotoScreen('signup/honeymoney')} style={itemStyle}>- signup/honeymoney -</UI.Button>
-        <UI.Button onPress={() => gotoScreen('signup/linkbank')} style={itemStyle}>- signup/linkbank -</UI.Button>
-        <UI.Button onPress={() => gotoScreen('signup/whoareyou')} style={itemStyle}>- signup/whoareyou -</UI.Button>
-        <UI.Button onPress={() => gotoScreen('signup/whosyourbank')} style={itemStyle}>- signup/whosyourbank -</UI.Button>
+        <UI.Button onPress={() => gotoScreen('signup/whoareyou')} style={itemStyle}>- linked signup process -</UI.Button>
 
         <UI.H2 style={{
           fontSize: 12,
@@ -45,6 +40,11 @@ class _PageList extends React.Component {
   }
 }
 
+//<UI.Button onPress={() => gotoScreen('signup/agreement')} style={itemStyle}>- signup/agreement -</UI.Button>
+//<UI.Button onPress={() => gotoScreen('signup/financial')} style={itemStyle}>- signup/financial -</UI.Button>
+//<UI.Button onPress={() => gotoScreen('signup/honeymoney')} style={itemStyle}>- signup/honeymoney -</UI.Button>
+//<UI.Button onPress={() => gotoScreen('signup/linkbank')} style={itemStyle}>- signup/linkbank -</UI.Button>
+//<UI.Button onPress={() => gotoScreen('signup/whosyourbank')} style={itemStyle}>- signup/whosyourbank -</UI.Button>
 _PageList.defaultProps = {};
 _PageList.propTypes = {};
 

@@ -10,6 +10,11 @@ const $$ = require('../stylesheet').get;
 const UI = require('../ui');
 
 class SignupHoneymoney extends React.Component {
+  constructor(props) {
+    super(props);
+
+    assign(this, require('./signup').insideMixin)
+  }
   render() {
     return (<View style={this.props.style}>
 
@@ -39,7 +44,7 @@ class SignupHoneymoney extends React.Component {
         </UI.Radio>
       </View>
 
-      <UI.Button>Next</UI.Button>
+      <UI.Button onPress={() => this.gotoRoute('signup/agreement')}>Next</UI.Button>
 
     </View>)
   }

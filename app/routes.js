@@ -1,6 +1,5 @@
 const React = require('react-native');
 
-
 /* ROUTES */
 const routes = (function (list) {
   return function (name) {
@@ -23,15 +22,15 @@ function getScreen(name) {
   // dirty check, but oookay )
   if (name.split('/')[0] === 'signup') {
     const SignupWrapper = require('./screen/signup');
-    const SignupPage = routes(name);
+    //const SignupPage = routes(name);
     return function (props) {
-      return (<SignupWrapper title={SignupPage.title} {...props}>
-        {(insideProps) => <SignupPage style={insideProps.style} toRoute={props.toRoute} />}
-      </SignupWrapper>)
+      return (<SignupWrapper {...props} firstComponent={routes(name)} />)
     }
   } else {
     return routes(name)
   }
 }
+// жестокий хак
+getScreen.raw = routes;
 
 module.exports = getScreen;

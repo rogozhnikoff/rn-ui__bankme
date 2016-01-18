@@ -18,6 +18,7 @@ class Root extends React.Component {
       screenAnimateValue: new Animated.Value(0),
 
       currentScreen: '_screenlist',
+      //currentScreen: 'signup/agreement',
       newScreen: null
     }
   }
